@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 buildscript {
     val kotlinVersion = "1.2.21"
     val springBootVersion = "2.0.0.RC1"
+    val junitGradlePluginVersion = "1.1.0-RC1"
 
     repositories {
         mavenCentral()
@@ -12,6 +13,7 @@ buildscript {
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion")
         classpath("org.jetbrains.kotlin:kotlin-allopen:$kotlinVersion")
+        classpath("org.junit.platform:junit-platform-gradle-plugin:$junitGradlePluginVersion")
     }
 }
 
@@ -23,6 +25,7 @@ apply {
     plugin("kotlin-spring")
     plugin("org.springframework.boot")
     plugin("io.spring.dependency-management")
+    plugin("org.junit.platform.gradle.plugin")
 }
 
 repositories {
@@ -35,7 +38,11 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter")
     compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     compile("org.jetbrains.kotlin:kotlin-reflect")
-    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile("org.springframework.boot:spring-boot-starter-test") {
+        exclude(module = "junit")
+    }
+    testCompile("org.junit.jupiter:junit-jupiter-api")
+    testRuntime("org.junit.jupiter:junit-jupiter-engine")
 }
 
 tasks.withType<KotlinCompile> {
