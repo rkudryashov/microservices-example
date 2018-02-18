@@ -7,7 +7,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 
 @ExtendWith(SpringExtension::class)
 @SpringBootTest
-class BootCloudKotlinApplicationTests {
+class ApiGatewayApplicationTests {
 
     @Test
     fun contextLoads() {
