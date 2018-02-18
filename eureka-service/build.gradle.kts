@@ -35,7 +35,7 @@ repositories {
 }
 
 dependencies {
-    compile("org.springframework.cloud:spring-cloud-starter-gateway")
+    compile("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server")
     compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     compile("org.jetbrains.kotlin:kotlin-reflect")
     testCompile("org.springframework.boot:spring-boot-starter-test") {
@@ -47,7 +47,7 @@ dependencies {
 
 dependencyManagement {
     imports {
-        mavenBom("org.springframework.cloud:spring-cloud-gateway:2.0.0.M6")
+        mavenBom("org.springframework.cloud:spring-cloud-netflix:2.0.0.M6")
     }
 }
 
