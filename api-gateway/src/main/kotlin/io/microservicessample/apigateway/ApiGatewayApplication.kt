@@ -1,4 +1,4 @@
-package io.romankudryashov.microservicesbasic.apigateway
+package io.microservicessample.apigateway
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

@@ -1,3 +1,3 @@
-rootProject.name = "microservices-basic"
+rootProject.name = "microservices-sample"
 
 include("api-gateway")

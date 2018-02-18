@@ -1,4 +1,4 @@
 allprojects {
-    group = "io.romankudryashov.microservices-basic"
+    group = "io.microservicessample"
     version = "0.0.1-SNAPSHOT"
 }

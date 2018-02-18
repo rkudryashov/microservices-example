@@ -1,4 +1,4 @@
-package io.romankudryashov.microservicesbasic.apigateway
+package io.microservicessample.apigateway
 
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
