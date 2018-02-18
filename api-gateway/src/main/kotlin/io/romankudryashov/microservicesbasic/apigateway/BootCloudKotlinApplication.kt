@@ -1,4 +1,4 @@
-package io.romankudryashov.bootcloudkotlin
+package io.romankudryashov.microservicesbasic.apigateway
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

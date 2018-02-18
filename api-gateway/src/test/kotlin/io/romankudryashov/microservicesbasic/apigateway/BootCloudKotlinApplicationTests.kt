@@ -1,4 +1,4 @@
-package io.romankudryashov.bootcloudkotlin
+package io.romankudryashov.microservicesbasic.apigateway
 
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
