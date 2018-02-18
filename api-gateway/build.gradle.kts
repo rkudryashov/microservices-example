@@ -19,12 +19,12 @@ buildscript {
 
 plugins {
     id("org.jetbrains.kotlin.jvm") version "1.2.21"
+    id("io.spring.dependency-management") version "1.0.3.RELEASE"
 }
 
 apply {
     plugin("kotlin-spring")
     plugin("org.springframework.boot")
-    plugin("io.spring.dependency-management")
     plugin("org.junit.platform.gradle.plugin")
 }
 
@@ -35,7 +35,7 @@ repositories {
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter")
+    compile("org.springframework.cloud:spring-cloud-starter-gateway")
     compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     compile("org.jetbrains.kotlin:kotlin-reflect")
     testCompile("org.springframework.boot:spring-boot-starter-test") {
@@ -43,6 +43,12 @@ dependencies {
     }
     testCompile("org.junit.jupiter:junit-jupiter-api")
     testRuntime("org.junit.jupiter:junit-jupiter-engine")
+}
+
+dependencyManagement {
+    imports {
+        mavenBom("org.springframework.cloud:spring-cloud-gateway:2.0.0.M6")
+    }
 }
 
 tasks.withType<KotlinCompile> {
