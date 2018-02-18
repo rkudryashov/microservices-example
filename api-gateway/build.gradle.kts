@@ -4,24 +4,22 @@ buildscript {
     val kotlinVersion = "1.2.21"
     val springBootVersion = "2.0.0.RC1"
 
-	repositories {
-		mavenCentral()
-		maven { setUrl("https://repo.spring.io/snapshot") }
-		maven { setUrl("https://repo.spring.io/milestone") }
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion")
-		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
-		classpath("org.jetbrains.kotlin:kotlin-allopen:$kotlinVersion")
-	}
+    repositories {
+        mavenCentral()
+        maven { setUrl("https://repo.spring.io/snapshot") }
+        maven { setUrl("https://repo.spring.io/milestone") }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion")
+        classpath("org.jetbrains.kotlin:kotlin-allopen:$kotlinVersion")
+    }
 }
 
 plugins {
-	id("org.jetbrains.kotlin.jvm") version "1.2.21"
+    id("org.jetbrains.kotlin.jvm") version "1.2.21"
 }
 
 apply {
-    plugin("kotlin")
     plugin("kotlin-spring")
     plugin("org.springframework.boot")
     plugin("io.spring.dependency-management")
