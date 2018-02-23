@@ -1,4 +1,4 @@
-package io.microservicessample.apigateway
+package io.microservicessample.eurekaserver
 
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith

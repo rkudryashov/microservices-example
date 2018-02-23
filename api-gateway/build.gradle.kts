@@ -1,9 +1,8 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+val springCloudGatewayVersion = "2.0.0.M6"
+
 buildscript {
-    val kotlinVersion = "1.2.21"
-    val springBootVersion = "2.0.0.RC1"
-    val junitGradlePluginVersion = "1.1.0-RC1"
 
     repositories {
         mavenCentral()
@@ -11,9 +10,9 @@ buildscript {
         maven { setUrl("https://repo.spring.io/milestone") }
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion")
-        classpath("org.jetbrains.kotlin:kotlin-allopen:$kotlinVersion")
-        classpath("org.junit.platform:junit-platform-gradle-plugin:$junitGradlePluginVersion")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${extra["springBootVersion"]}")
+        classpath("org.jetbrains.kotlin:kotlin-allopen:${extra["kotlinVersion"]}")
+        classpath("org.junit.platform:junit-platform-gradle-plugin:${extra["junitGradlePluginVersion"]}")
     }
 }
 
@@ -47,7 +46,7 @@ dependencies {
 
 dependencyManagement {
     imports {
-        mavenBom("org.springframework.cloud:spring-cloud-gateway:2.0.0.M6")
+        mavenBom("org.springframework.cloud:spring-cloud-gateway:$springCloudGatewayVersion")
     }
 }
 
