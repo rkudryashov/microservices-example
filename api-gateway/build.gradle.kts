@@ -35,6 +35,7 @@ repositories {
 
 dependencies {
     compile("org.springframework.cloud:spring-cloud-starter-gateway")
+    compile("org.springframework.boot:spring-boot-starter-security")
     compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     compile("org.jetbrains.kotlin:kotlin-reflect")
     testCompile("org.springframework.boot:spring-boot-starter-test") {

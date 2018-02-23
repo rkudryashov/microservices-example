@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
-class Config {
+class RouteConfig {
 
     @Bean
     fun additionalRouteLocator(builder: RouteLocatorBuilder): RouteLocator = builder.routes {
