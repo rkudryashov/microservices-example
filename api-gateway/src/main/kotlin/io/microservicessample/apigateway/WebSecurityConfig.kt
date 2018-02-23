@@ -14,7 +14,7 @@ class WebSecurityConfig {
     fun springWebFilterChain(http: ServerHttpSecurity): SecurityWebFilterChain {
         return http.httpBasic().and()
                 .authorizeExchange()
-                .pathMatchers("/get").authenticated()
+                .pathMatchers("/anything/**").authenticated()
                 .anyExchange().permitAll()
                 .and()
                 .build()
