@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 val springCloudNetflixVersion = "2.0.0.M6"
 val jaxbApiVersion = "2.3.0"
+val javaxActivationVersion = "1.1.1"
 
 buildscript {
     repositories {
@@ -39,6 +40,9 @@ dependencies {
     compile("org.jetbrains.kotlin:kotlin-reflect")
     // need to avoid 'java.lang.TypeNotPresentException: Type javax.xml.bind.JAXBContext not present' if run on jdk 9
     compile("javax.xml.bind:jaxb-api:$jaxbApiVersion")
+    compile("com.sun.xml.bind:jaxb-impl:$jaxbApiVersion")
+    compile("com.sun.xml.bind:jaxb-core:$jaxbApiVersion")
+    compile("javax.activation:activation:$javaxActivationVersion")
     testCompile("org.springframework.boot:spring-boot-starter-test") {
         exclude(module = "junit")
     }
