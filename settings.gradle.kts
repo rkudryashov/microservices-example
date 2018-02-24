@@ -1,3 +1,3 @@
 rootProject.name = "microservices-sample"
 
-include("api-gateway", "eureka-server")
+include("api-gateway", "eureka-server", "greeting-service")

@@ -5,6 +5,7 @@ import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder
 import org.springframework.cloud.gateway.route.builder.routes
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.http.HttpMethod
 
 @Configuration
 class RouteConfig {
@@ -14,6 +15,11 @@ class RouteConfig {
         route("path_route") {
             path("/get")
             uri("http://httpbin.org:80")
+        }
+        route("greeting_route") {
+            path("/greeting")
+            method(HttpMethod.GET)
+            uri("http://localhost:8090")
         }
     }
 }
