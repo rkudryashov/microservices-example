@@ -19,7 +19,7 @@ class RouteConfig {
         route("greeting_route") {
             path("/greeting")
             method(HttpMethod.GET)
-            uri("http://localhost:8090")
+            uri("lb://greeting-service")
         }
     }
 }
