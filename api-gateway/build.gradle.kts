@@ -1,13 +1,10 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-val springCloudGatewayVersion = "2.0.0.M6"
+val springCloudGatewayVersion = "2.0.0.M8"
 
 buildscript {
-
     repositories {
         mavenCentral()
-        maven { setUrl("https://repo.spring.io/snapshot") }
-        maven { setUrl("https://repo.spring.io/milestone") }
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${extra["springBootVersion"]}")
