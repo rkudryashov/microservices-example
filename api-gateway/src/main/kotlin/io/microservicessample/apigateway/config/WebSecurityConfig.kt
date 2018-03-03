@@ -13,6 +13,7 @@ class WebSecurityConfig {
     @Bean
     fun springWebFilterChain(http: ServerHttpSecurity): SecurityWebFilterChain {
         return http.httpBasic().and()
+                .formLogin().and()
                 .authorizeExchange()
                 .pathMatchers("/anything/**").authenticated()
                 .anyExchange().permitAll()
