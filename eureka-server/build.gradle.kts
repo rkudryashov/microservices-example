@@ -1,6 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-val springCloudNetflixVersion = "2.0.0.M7"
 val jaxbApiVersion = "2.3.0"
 val javaxActivationVersion = "1.1.1"
 
@@ -51,7 +50,7 @@ dependencies {
 
 dependencyManagement {
     imports {
-        mavenBom("org.springframework.cloud:spring-cloud-netflix:$springCloudNetflixVersion")
+        mavenBom("org.springframework.cloud:spring-cloud-netflix:${extra["springCloudNetflixVersion"]}")
         mavenBom("org.springframework.cloud:spring-cloud-config:${extra["springCloudConfigVersion"]}")
     }
 }

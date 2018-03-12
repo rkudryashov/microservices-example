@@ -1,7 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-val springCloudConfigVersion = "2.0.0.M8"
-
 buildscript {
     repositories {
         mavenCentral()
@@ -43,7 +41,7 @@ dependencies {
 
 dependencyManagement {
     imports {
-        mavenBom("org.springframework.cloud:spring-cloud-config:$springCloudConfigVersion")
+        mavenBom("org.springframework.cloud:spring-cloud-config:${extra["springCloudConfigVersion"]}")
     }
 }
 

@@ -1,7 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-val springCloudNetflixVersion = "2.0.0.M6"
-
 buildscript {
     repositories {
         mavenCentral()
@@ -49,7 +47,7 @@ dependencies {
 
 dependencyManagement {
     imports {
-        mavenBom("org.springframework.cloud:spring-cloud-netflix:$springCloudNetflixVersion")
+        mavenBom("org.springframework.cloud:spring-cloud-netflix:${extra["springCloudNetflixVersion"]}")
         mavenBom("org.springframework.cloud:spring-cloud-config:${extra["springCloudConfigVersion"]}")
     }
 }
