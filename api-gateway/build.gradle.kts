@@ -33,6 +33,7 @@ repositories {
 dependencies {
     compile("org.springframework.cloud:spring-cloud-starter-gateway")
     compile("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
+    compile("org.springframework.cloud:spring-cloud-config-client")
     compile("org.springframework.boot:spring-boot-starter-security")
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
@@ -47,6 +48,7 @@ dependencies {
 dependencyManagement {
     imports {
         mavenBom("org.springframework.cloud:spring-cloud-gateway:$springCloudGatewayVersion")
+        mavenBom("org.springframework.cloud:spring-cloud-config:${extra["springCloudConfigVersion"]}")
     }
 }
 

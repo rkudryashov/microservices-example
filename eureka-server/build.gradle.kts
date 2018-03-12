@@ -34,6 +34,7 @@ repositories {
 
 dependencies {
     compile("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server")
+    compile("org.springframework.cloud:spring-cloud-config-client")
     compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     compile("org.jetbrains.kotlin:kotlin-reflect")
     // need to avoid 'java.lang.TypeNotPresentException: Type javax.xml.bind.JAXBContext not present' if run on jdk 9
@@ -51,6 +52,7 @@ dependencies {
 dependencyManagement {
     imports {
         mavenBom("org.springframework.cloud:spring-cloud-netflix:$springCloudNetflixVersion")
+        mavenBom("org.springframework.cloud:spring-cloud-config:${extra["springCloudConfigVersion"]}")
     }
 }
 
