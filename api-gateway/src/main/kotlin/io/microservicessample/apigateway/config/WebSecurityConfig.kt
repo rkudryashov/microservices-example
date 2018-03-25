@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.web.server.ServerHttpSecurity
 import org.springframework.security.core.userdetails.MapReactiveUserDetailsService
+import org.springframework.security.core.userdetails.ReactiveUserDetailsService
 import org.springframework.security.core.userdetails.User
 import org.springframework.security.web.server.SecurityWebFilterChain
 
@@ -12,20 +13,23 @@ class WebSecurityConfig {
 
     @Bean
     fun springWebFilterChain(http: ServerHttpSecurity): SecurityWebFilterChain {
-        return http.httpBasic().and()
+        return http
                 .formLogin().loginPage("/login")
                 .and()
                 .authorizeExchange()
-                .pathMatchers("/get").permitAll()
                 .pathMatchers("/login").permitAll()
-                .anyExchange().authenticated()
+                .pathMatchers("/static/**").permitAll()
+                .pathMatchers("/greeting/**").authenticated()
+                .anyExchange().denyAll()
                 .and()
+                .csrf().disable()
                 .build()
     }
 
     @Bean
-    fun reactiveUserDetailsService(): MapReactiveUserDetailsService {
-        val user = User.withDefaultPasswordEncoder().username("user").password("password").roles("USER").build()
+    fun reactiveUserDetailsService(): ReactiveUserDetailsService {
+        val user = User.withDefaultPasswordEncoder()
+                .username("user").password("password").roles("USER").build()
         return MapReactiveUserDetailsService(user)
     }
 }

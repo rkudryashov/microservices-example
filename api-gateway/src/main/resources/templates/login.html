@@ -2,38 +2,32 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Please sign in</title>
+    <title>Microservices sample</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link href="http://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous"/>
 </head>
 
 <body>
-
 <div class="container">
-
-    <form name="f" class="form-signin" th:action="@{/login}" method="post">
-        <div th:if="${param.error}" class="alert alert-error">
-            Invalid username and password.
-        </div>
-
-        <div th:if="${param.logout}" class="alert alert-success">
-            You have been logged out.
-        </div>
-
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="username" class="sr-only">Username</label>
-        <input type="text" name="username" id="username" class="form-control" placeholder="Username" required="true"
-               autofocus="true"/>
-        <label for="password" class="sr-only">Password</label>
-        <input type="password" name="password" id="password" class="form-control" placeholder="Password"
-               required="true"/>
+    <img th:src="@{/static/images/logo.png}" class="mx-auto d-block"/>
+    <div th:if="${param.error}">
+        <h1 class="text-center" style="color:red">Invalid username and password.</h1>
+    </div>
+    <div th:if="${param.logout}">
+        <h1 class="text-center" style="color:blue">You have been logged out.</h1>
+    </div>
+    <form class="form-signin" th:action="@{/login}" method="post">
+        <p>
+            <label for="username" class="sr-only">Username</label>
+            <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
+        </p>
+        <p>
+            <label for="password" class="sr-only">Password</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+        </p>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     </form>
-
 </div>
-
 </body>
 </html>

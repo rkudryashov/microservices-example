@@ -1,6 +1,10 @@
 server:
   port: 8080
 
+spring:
+  webflux:
+    static-path-pattern: /static/**
+
 eureka:
   client:
     serviceUrl:

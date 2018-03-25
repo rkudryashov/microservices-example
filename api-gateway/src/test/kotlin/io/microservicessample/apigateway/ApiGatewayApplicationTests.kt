@@ -17,10 +17,11 @@ class ApiGatewayApplicationTests {
     private lateinit var webTestClient: WebTestClient
 
     @Test
-    fun pathRouteWorks() {
-        webTestClient.get().uri("/get")
+    fun shouldReturnUnauthorizedHttpStatus() {
+        webTestClient.get().uri("/anything/123")
                 .exchange()
-                .expectStatus().isOk
+                .expectStatus().is3xxRedirection
+                .expectHeader().valueEquals("Location", "/login")
                 .expectBody(Map::class.java)
         // todo enable
 //                .consumeWith<Nothing> {
@@ -28,15 +29,5 @@ class ApiGatewayApplicationTests {
 //                }
     }
 
-    @Test
-    fun shouldReturnUnauthorizedHttpStatus() {
-        webTestClient.get().uri("/anything/123")
-                .exchange()
-                .expectStatus().isUnauthorized
-                .expectBody(Map::class.java)
-        // todo enable
-//                .consumeWith<Nothing> {
-//                    assertThat(it.responseBody).isNotEmpty
-//                }
-    }
+    // todo more tests
 }
