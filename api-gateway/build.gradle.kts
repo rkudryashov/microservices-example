@@ -1,6 +1,6 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-val springCloudGatewayVersion = "2.0.0.M8"
+val springCloudGatewayVersion = "2.0.0.RC1"
 
 buildscript {
     repositories {
@@ -14,8 +14,8 @@ buildscript {
 }
 
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "1.2.30"
-    id("io.spring.dependency-management") version "1.0.4.RELEASE"
+    id("org.jetbrains.kotlin.jvm") version "1.2.41"
+    id("io.spring.dependency-management") version "1.0.5.RELEASE"
 }
 
 apply {

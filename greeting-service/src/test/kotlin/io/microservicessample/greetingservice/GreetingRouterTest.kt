@@ -1,5 +1,6 @@
 package io.microservicessample.greetingservice
 
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -23,9 +24,9 @@ class GreetingRouterTest {
                 .exchange()
                 .expectStatus().isOk
                 .expectBody(String::class.java)
-        // will be fixed in Kotlin 1.3
-        // https://jira.spring.io/browse/SPR-15692
-        // https://youtrack.jetbrains.com/issue/KT-5464
-//                .isEqualTo<Nothing>("Hello, WebFlux!")
+                //.isEqualTo<Nothing>("Hello, WebFlux!")
+                .returnResult().apply {
+                    assertEquals(responseBody, "Hello, WebFlux!")
+                }
     }
 }
