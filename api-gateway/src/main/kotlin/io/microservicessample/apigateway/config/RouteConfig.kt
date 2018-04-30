@@ -2,6 +2,7 @@ package io.microservicessample.apigateway.config
 
 import org.springframework.cloud.gateway.route.RouteLocator
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder
+import org.springframework.cloud.gateway.route.builder.filters
 import org.springframework.cloud.gateway.route.builder.routes
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -13,6 +14,7 @@ class RouteConfig {
     fun additionalRouteLocator(builder: RouteLocatorBuilder): RouteLocator = builder.routes {
         route("greeting_route") {
             path("/greeting/**")
+            filters { rewritePath("/greeting/(?<segment>.*)", "/\${segment}") }
             uri("lb://greeting-service")
         }
     }

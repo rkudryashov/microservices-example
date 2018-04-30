@@ -29,7 +29,7 @@ class WebSecurityConfig {
     @Bean
     fun reactiveUserDetailsService(): ReactiveUserDetailsService {
         val user = User.withDefaultPasswordEncoder()
-                .username("user").password("password").roles("USER").build()
+                .username("john_doe").password("qwerty").roles("USER").build()
         return MapReactiveUserDetailsService(user)
     }
 }

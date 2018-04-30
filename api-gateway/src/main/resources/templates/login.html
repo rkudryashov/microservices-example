@@ -12,15 +12,16 @@
 <div class="container">
     <img th:src="@{/static/images/logo.png}" class="mx-auto d-block"/>
     <div th:if="${param.error}">
-        <h1 class="text-center" style="color:red">Invalid username and password.</h1>
+        <h4 class="text-center" style="color:red">Invalid username and password.</h4>
     </div>
     <div th:if="${param.logout}">
-        <h1 class="text-center" style="color:blue">You have been logged out.</h1>
+        <h4 class="text-center" style="color:blue">You have been logged out.</h4>
     </div>
     <form class="form-signin" th:action="@{/login}" method="post">
         <p>
             <label for="username" class="sr-only">Username</label>
-            <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
+            <input type="text" id="username" name="username" class="form-control" placeholder="Username" required
+                   autofocus>
         </p>
         <p>
             <label for="password" class="sr-only">Password</label>
