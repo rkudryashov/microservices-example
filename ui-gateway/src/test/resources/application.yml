@@ -1,0 +1,3 @@
+spring:
+  webflux:
+    static-path-pattern: /static/**
