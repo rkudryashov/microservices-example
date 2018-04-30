@@ -1,4 +1,4 @@
-package io.microservicessample.apigateway
+package io.microservicessample.uigateway
 
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
@@ -9,7 +9,7 @@ import org.springframework.test.web.reactive.server.WebTestClient
 
 @ExtendWith(SpringExtension::class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, properties = ["spring.cloud.config.enabled:false"])
-class ApiGatewayApplicationTests {
+class UiGatewayApplicationTests {
 
     @Autowired
     private lateinit var webTestClient: WebTestClient

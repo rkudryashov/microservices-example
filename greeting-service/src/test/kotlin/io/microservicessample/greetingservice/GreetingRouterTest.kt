@@ -19,7 +19,7 @@ class GreetingRouterTest {
     @Test
     fun testGreeting() {
         webTestClient
-                .get().uri("/greeting")
+                .get().uri("/webflux")
                 .accept(MediaType.TEXT_PLAIN)
                 .exchange()
                 .expectStatus().isOk

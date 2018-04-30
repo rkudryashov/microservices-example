@@ -1,6 +1,6 @@
 spring:
   application:
-    name: api-gateway
+    name: ui-gateway
   cloud:
     config:
       uri: http://localhost:8888

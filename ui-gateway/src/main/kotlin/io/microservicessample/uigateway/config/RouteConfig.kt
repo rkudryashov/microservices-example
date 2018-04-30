@@ -1,4 +1,4 @@
-package io.microservicessample.apigateway.config
+package io.microservicessample.uigateway.config
 
 import org.springframework.cloud.gateway.route.RouteLocator
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder

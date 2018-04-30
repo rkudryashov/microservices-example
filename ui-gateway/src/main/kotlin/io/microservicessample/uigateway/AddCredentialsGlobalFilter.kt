@@ -1,4 +1,4 @@
-package io.microservicessample.apigateway
+package io.microservicessample.uigateway
 
 import org.springframework.cloud.gateway.filter.GatewayFilterChain
 import org.springframework.cloud.gateway.filter.GlobalFilter

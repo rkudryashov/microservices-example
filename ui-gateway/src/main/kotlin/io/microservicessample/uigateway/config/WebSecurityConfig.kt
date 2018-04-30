@@ -1,4 +1,4 @@
-package io.microservicessample.apigateway.config
+package io.microservicessample.uigateway.config
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

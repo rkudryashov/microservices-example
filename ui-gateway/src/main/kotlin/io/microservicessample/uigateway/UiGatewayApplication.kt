@@ -1,11 +1,11 @@
-package io.microservicessample.apigateway
+package io.microservicessample.uigateway
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class ApiGatewayApplication
+class UiGatewayApplication
 
 fun main(args: Array<String>) {
-    runApplication<ApiGatewayApplication>(*args)
+    runApplication<UiGatewayApplication>(*args)
 }

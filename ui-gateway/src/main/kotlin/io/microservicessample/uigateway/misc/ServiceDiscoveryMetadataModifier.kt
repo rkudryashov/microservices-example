@@ -1,4 +1,4 @@
-package io.microservicessample.apigateway.misc
+package io.microservicessample.uigateway.misc
 
 import com.netflix.appinfo.ApplicationInfoManager
 import org.springframework.stereotype.Component
