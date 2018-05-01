@@ -1,5 +1,10 @@
 server:
-  port: 8080
+  port: 443
+  ssl:
+    key-store: classpath:keystore.p12
+    key-store-password: qwerty
+    key-alias: test_key
+    key-store-type: PKCS12
 
 spring:
   webflux:

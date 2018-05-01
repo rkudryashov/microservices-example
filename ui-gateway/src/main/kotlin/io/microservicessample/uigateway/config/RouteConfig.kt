@@ -15,7 +15,7 @@ class RouteConfig {
         route("greeting_route") {
             path("/greeting/**")
             filters { rewritePath("/greeting/(?<segment>.*)", "/\${segment}") }
-            uri("lb://greeting-service")
+            uri("lb:http://greeting-service")
         }
     }
 }
