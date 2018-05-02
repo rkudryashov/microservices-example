@@ -11,8 +11,10 @@ import reactor.core.publisher.Mono
 @Component
 class GreetingHandler {
 
-    fun hello(request: ServerRequest): Mono<ServerResponse> {
-        return ServerResponse.ok().contentType(MediaType.TEXT_PLAIN)
-                .body(BodyInserters.fromObject("Hello, WebFlux!"))
-    }
+    fun helloWebflux(request: ServerRequest): Mono<ServerResponse> = ServerResponse
+            .ok()
+            .contentType(MediaType.TEXT_PLAIN)
+            .body(BodyInserters.fromObject("Hello, WebFlux!"))
+
+    fun helloException(request: ServerRequest): Mono<ServerResponse> = throw RuntimeException("Some exception...")
 }

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestHeader
 @Controller
 class GreetingController {
 
-    @GetMapping("/")
+    @GetMapping("/{salutation}")
     fun greetingView(@PathVariable salutation: String?,
                      @RequestHeader("logged-in-user") loggedInUser: String,
                      model: Model): String {

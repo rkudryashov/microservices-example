@@ -24,6 +24,7 @@ class GreetingRouterTest {
                 .exchange()
                 .expectStatus().isOk
                 .expectBody(String::class.java)
+                // todo uncomment
                 //.isEqualTo<Nothing>("Hello, WebFlux!")
                 .returnResult().apply {
                     assertEquals(responseBody, "Hello, WebFlux!")

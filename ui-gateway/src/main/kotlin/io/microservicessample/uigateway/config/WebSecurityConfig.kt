@@ -12,19 +12,18 @@ import org.springframework.security.web.server.SecurityWebFilterChain
 class WebSecurityConfig {
 
     @Bean
-    fun springWebFilterChain(http: ServerHttpSecurity): SecurityWebFilterChain {
-        return http
-                .formLogin().loginPage("/login")
-                .and()
-                .authorizeExchange()
-                .pathMatchers("/login").permitAll()
-                .pathMatchers("/static/**").permitAll()
-                .pathMatchers("/greeting/**").authenticated()
-                .anyExchange().denyAll()
-                .and()
-                .csrf().disable()
-                .build()
-    }
+    fun springWebFilterChain(http: ServerHttpSecurity): SecurityWebFilterChain = http
+            .formLogin().loginPage("/login")
+            .and()
+            .authorizeExchange()
+            .pathMatchers("/login").permitAll()
+            .pathMatchers("/static/**").permitAll()
+            .pathMatchers("/greeting/**").authenticated()
+            .pathMatchers("/nonexistent/**").authenticated()
+            .anyExchange().denyAll()
+            .and()
+            .csrf().disable()
+            .build()
 
     @Bean
     fun reactiveUserDetailsService(): ReactiveUserDetailsService {
