@@ -18,7 +18,8 @@ class WebSecurityConfig {
             .authorizeExchange()
             .pathMatchers("/login").permitAll()
             .pathMatchers("/static/**").permitAll()
-            .pathMatchers("/greeting/**").authenticated()
+            .pathMatchers("/actuator/**").hasRole("ADMIN")
+            .pathMatchers("/greeting/**").hasRole("USER")
             .pathMatchers("/nonexistent/**").authenticated()
             .anyExchange().denyAll()
             .and()
@@ -28,7 +29,11 @@ class WebSecurityConfig {
     @Bean
     fun reactiveUserDetailsService(): ReactiveUserDetailsService {
         val user = User.withDefaultPasswordEncoder()
-                .username("john_doe").password("qwerty").roles("USER").build()
-        return MapReactiveUserDetailsService(user)
+                .username("john_doe").password("qwerty").roles("USER")
+                .build()
+        val admin = User.withDefaultPasswordEncoder()
+                .username("admin").password("admin").roles("ADMIN")
+                .build()
+        return MapReactiveUserDetailsService(user, admin)
     }
 }

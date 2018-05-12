@@ -15,6 +15,7 @@ class RouteConfig {
             path("/greeting/**")
             filters {
                 // todo how to apply hystrix to url with exception?
+                // todo not working on `/greeting/`
                 rewritePath("/greeting/(?<segment>.*)", "/\${segment}")
             }
             // todo rename to ui?

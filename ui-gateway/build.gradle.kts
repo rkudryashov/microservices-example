@@ -35,6 +35,7 @@ dependencies {
     compile("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
     compile("org.springframework.cloud:spring-cloud-config-client")
     compile("org.springframework.cloud:spring-cloud-starter-netflix-hystrix")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
     compile("org.springframework.boot:spring-boot-starter-security")
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
