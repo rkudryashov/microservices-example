@@ -1,7 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-val springCloudGatewayVersion = "2.0.0.RC1"
-
 buildscript {
     repositories {
         mavenCentral()
@@ -50,8 +48,7 @@ dependencies {
 
 dependencyManagement {
     imports {
-        mavenBom("org.springframework.cloud:spring-cloud-gateway:$springCloudGatewayVersion")
-        mavenBom("org.springframework.cloud:spring-cloud-config:${extra["springCloudConfigVersion"]}")
+        mavenBom("org.springframework.cloud:spring-cloud-dependencies:${extra["springCloudDependenciesVersion"]}")
     }
 }
 
