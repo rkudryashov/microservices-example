@@ -3,7 +3,7 @@ allprojects {
     version = "0.0.1-SNAPSHOT"
 
     val kotlinVersion by extra("1.2.41")
-    val springBootVersion by extra("2.0.1.RELEASE")
-    val springCloudDependenciesVersion by extra("Finchley.RC1")
+    val springBootVersion by extra("2.0.2.RELEASE")
+    val springCloudDependenciesVersion by extra("Finchley.RC2")
     val junitGradlePluginVersion by extra("1.1.1")
 }
