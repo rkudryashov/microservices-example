@@ -1,4 +1,4 @@
-package io.microservicessample.greetingservice
+package io.microservicessample.greetingui
 
 import org.springframework.http.MediaType
 import org.springframework.stereotype.Component
