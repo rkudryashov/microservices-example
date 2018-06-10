@@ -5,5 +5,4 @@ allprojects {
     val kotlinVersion by extra("1.2.41")
     val springBootVersion by extra("2.0.2.RELEASE")
     val springCloudDependenciesVersion by extra("Finchley.RC2")
-    val junitGradlePluginVersion by extra("1.1.1")
 }

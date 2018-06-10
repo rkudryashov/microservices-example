@@ -10,7 +10,6 @@ buildscript {
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${extra["springBootVersion"]}")
         classpath("org.jetbrains.kotlin:kotlin-allopen:${extra["kotlinVersion"]}")
-        classpath("org.junit.platform:junit-platform-gradle-plugin:${extra["junitGradlePluginVersion"]}")
     }
 }
 
@@ -22,7 +21,6 @@ plugins {
 apply {
     plugin("kotlin-spring")
     plugin("org.springframework.boot")
-    plugin("org.junit.platform.gradle.plugin")
 }
 
 repositories {
@@ -54,9 +52,14 @@ dependencyManagement {
     }
 }
 
-tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        jvmTarget = "1.8"
-        freeCompilerArgs = listOf("-Xjsr305=strict")
+tasks {
+    tasks.withType<Test> {
+        useJUnitPlatform()
+    }
+    withType<KotlinCompile> {
+        kotlinOptions {
+            jvmTarget = "1.8"
+            freeCompilerArgs = listOf("-Xjsr305=strict")
+        }
     }
 }
