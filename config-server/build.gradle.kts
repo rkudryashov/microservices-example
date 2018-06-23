@@ -11,7 +11,7 @@ buildscript {
 }
 
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "1.2.41"
+    id("org.jetbrains.kotlin.jvm") version "1.2.51"
     id("io.spring.dependency-management") version "1.0.5.RELEASE"
 }
 
@@ -22,8 +22,6 @@ apply {
 
 repositories {
     mavenCentral()
-    maven { setUrl("https://repo.spring.io/snapshot") }
-    maven { setUrl("https://repo.spring.io/milestone") }
 }
 
 dependencies {
