@@ -1,7 +1,6 @@
 spring:
   application:
-    name: greeting-service
+    name: greeting-ui
   cloud:
     config:
       uri: http://localhost:8888
-      fail-fast: true

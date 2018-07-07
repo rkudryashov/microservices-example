@@ -10,11 +10,12 @@ spring:
   webflux:
     static-path-pattern: /static/**
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-
 logging:
   level:
     org.springframework.cloud.gateway.handler.RoutePredicateHandlerMapping : debug
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
