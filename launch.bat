@@ -3,6 +3,7 @@ for %%x in (
         eureka-server
         ui-gateway
         greeting-ui
+        some-service
        ) do (
          cd %%x
          start ..\gradlew.bat bootRun
