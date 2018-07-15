@@ -9,6 +9,7 @@ class GreetingRouter {
 
     @Bean
     fun routes(greetingHandler: GreetingHandler) = router {
+        // todo refactor - delete handler class
         GET("/webflux", greetingHandler::helloWebflux)
         GET("/exception", greetingHandler::helloException)
     }

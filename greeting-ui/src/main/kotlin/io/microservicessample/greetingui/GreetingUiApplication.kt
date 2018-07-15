@@ -4,8 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class GreetingServiceApplication
+class GreetingUiApplication
 
 fun main(args: Array<String>) {
-    runApplication<GreetingServiceApplication>(*args)
+    runApplication<GreetingUiApplication>(*args)
 }

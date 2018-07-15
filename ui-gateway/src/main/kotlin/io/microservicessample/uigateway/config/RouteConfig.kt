@@ -10,17 +10,12 @@ import org.springframework.context.annotation.Configuration
 class RouteConfig {
 
     @Bean
-    fun additionalRouteLocator(builder: RouteLocatorBuilder) = builder.routes {
+    fun routeLocator(builder: RouteLocatorBuilder) = builder.routes {
         route("greeting_route") {
             path("/greeting/**")
-            filters {
-                // todo how to apply hystrix to url with exception?
-                // todo not working on `/greeting/`
-                rewritePath("/greeting/(?<segment>.*)", "/\${segment}")
-            }
-            // todo rename to ui?
-            uri("lb:http://greeting-service")
+            uri("lb:http://greeting-ui")
         }
+        // todo what's this?!
         route("hystrix_fallback_route") {
             path("/nonexistent/**")
             filters {

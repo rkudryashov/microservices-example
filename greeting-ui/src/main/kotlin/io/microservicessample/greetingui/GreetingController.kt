@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestHeader
 
 @Controller
+// todo move to router
 class GreetingController {
 
-    @GetMapping("/{salutation}")
-    fun greetingView(@PathVariable salutation: String?,
-                     @RequestHeader("logged-in-user") loggedInUser: String,
+    @GetMapping("/")
+    fun greetingView(@RequestHeader("logged-in-user") loggedInUser: String,
                      model: Model): String {
-        model.addAttribute("greeting", "${salutation ?: "Hi"}, $loggedInUser")
+        model.addAttribute("greeting", "Hi, $loggedInUser")
         return "greeting"
     }
 }

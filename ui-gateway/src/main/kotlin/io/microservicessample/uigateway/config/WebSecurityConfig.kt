@@ -28,6 +28,7 @@ class WebSecurityConfig {
 
     @Bean
     fun reactiveUserDetailsService(): ReactiveUserDetailsService {
+        // todo remove deprecated method
         val user = User.withDefaultPasswordEncoder()
                 .username("john_doe").password("qwerty").roles("USER")
                 .build()
