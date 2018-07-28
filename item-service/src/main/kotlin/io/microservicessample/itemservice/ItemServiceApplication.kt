@@ -1,11 +1,11 @@
-package io.microservicessample.someservice
+package io.microservicessample.itemservice
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class SomeServiceApplication
+class ItemServiceApplication
 
 fun main(args: Array<String>) {
-    runApplication<SomeServiceApplication>(*args)
+    runApplication<ItemServiceApplication>(*args)
 }
