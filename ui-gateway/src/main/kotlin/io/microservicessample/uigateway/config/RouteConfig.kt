@@ -11,9 +11,9 @@ class RouteConfig {
 
     @Bean
     fun routeLocator(builder: RouteLocatorBuilder) = builder.routes {
-        route("greeting_route") {
-            path("/greeting/**")
-            uri("lb:http://greeting-ui")
+        route("item-ui-route") {
+            path("/items/**")
+            uri("lb:http://item-ui")
         }
         // todo what's this?!
         route("hystrix_fallback_route") {

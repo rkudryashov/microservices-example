@@ -1,4 +1,4 @@
-package io.microservicessample.greetingui.controller
+package io.microservicessample.itemui.controller
 
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model

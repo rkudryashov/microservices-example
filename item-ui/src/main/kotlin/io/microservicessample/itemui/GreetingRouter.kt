@@ -1,4 +1,4 @@
-package io.microservicessample.greetingui
+package io.microservicessample.itemui
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

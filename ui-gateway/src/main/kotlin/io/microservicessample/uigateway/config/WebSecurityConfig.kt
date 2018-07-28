@@ -19,7 +19,7 @@ class WebSecurityConfig {
             .pathMatchers("/login").permitAll()
             .pathMatchers("/static/**").permitAll()
             .pathMatchers("/actuator/**").hasRole("ADMIN")
-            .pathMatchers("/greeting/**").hasRole("USER")
+            .pathMatchers("/items/**").hasRole("USER")
             .pathMatchers("/nonexistent/**").authenticated()
             .anyExchange().denyAll()
             .and()

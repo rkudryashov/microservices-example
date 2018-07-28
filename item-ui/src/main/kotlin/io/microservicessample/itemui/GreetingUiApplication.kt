@@ -1,4 +1,4 @@
-package io.microservicessample.greetingui
+package io.microservicessample.itemui
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

@@ -1,4 +1,4 @@
-package io.microservicessample.greetingui
+package io.microservicessample.itemui
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
