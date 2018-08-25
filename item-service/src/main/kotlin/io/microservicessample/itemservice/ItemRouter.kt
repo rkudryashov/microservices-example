@@ -2,17 +2,19 @@ package io.microservicessample.itemservice
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.web.reactive.function.BodyInserters
-import org.springframework.web.reactive.function.server.ServerResponse.ok
+import org.springframework.http.MediaType.APPLICATION_JSON
 import org.springframework.web.reactive.function.server.router
 
 @Configuration
 class ItemRouter {
 
     @Bean
-    fun routes() = router {
-        GET("/some-entity") {
-            ok().body(BodyInserters.fromObject("some-data"))
+    fun router(handler: ItemHandler) = router {
+        accept(APPLICATION_JSON).and(path("/items")).nest {
+            GET("/", handler::getAllItems)
+            POST("/", handler::addItem)
+            GET("/{id}", handler::getItem)
+            PUT("/{id}", handler::updateItem)
         }
     }
 }
