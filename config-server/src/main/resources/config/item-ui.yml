@@ -1,4 +1,2 @@
 server:
   port: 8090
-  servlet:
-    context-path: /greeting

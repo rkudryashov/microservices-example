@@ -1,5 +1,6 @@
 spring:
   application:
+#    todo rename to items
     name: item-service
   cloud:
     config:

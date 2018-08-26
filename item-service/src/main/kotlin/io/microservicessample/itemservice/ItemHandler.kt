@@ -1,10 +1,12 @@
 package io.microservicessample.itemservice
 
 import org.springframework.http.MediaType.APPLICATION_JSON
+import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.BodyInserters.fromObject
 import org.springframework.web.reactive.function.server.ServerRequest
 import org.springframework.web.reactive.function.server.ServerResponse
 
+@Component
 class ItemHandler(private val itemRepository: ItemRepository) {
 
     @Suppress("UNUSED_PARAMETER")

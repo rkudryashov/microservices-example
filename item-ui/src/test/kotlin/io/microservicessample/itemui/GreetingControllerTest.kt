@@ -1,6 +1,5 @@
 package io.microservicessample.itemui
 
-import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -11,7 +10,7 @@ import org.springframework.test.web.reactive.server.WebTestClient
 
 @ExtendWith(SpringExtension::class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, properties = ["spring.cloud.config.enabled:false"])
-class GreetingRouterTest {
+class GreetingControllerTest {
 
     @Autowired
     private lateinit var webTestClient: WebTestClient
@@ -19,15 +18,10 @@ class GreetingRouterTest {
     @Test
     fun testGreeting() {
         webTestClient
-                .get().uri("/webflux")
+                .get().uri("/items/greeting")
+                .header("logged-in-user", "test")
                 .accept(MediaType.TEXT_PLAIN)
                 .exchange()
                 .expectStatus().isOk
-                .expectBody(String::class.java)
-                // todo uncomment
-                //.isEqualTo<Nothing>("Hello, WebFlux!")
-                .returnResult().apply {
-                    assertEquals(responseBody, "Hello, WebFlux!")
-                }
     }
 }

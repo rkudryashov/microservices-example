@@ -1,12 +1,17 @@
 package io.microservicessample.itemservice
 
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.CommandLineRunner
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.http.MediaType.APPLICATION_JSON
 import org.springframework.web.reactive.function.server.router
 
 @Configuration
-class ItemRouter {
+class Config {
+
+    @Autowired
+    private lateinit var itemRepository: ItemRepository
 
     @Bean
     fun router(handler: ItemHandler) = router {
@@ -16,5 +21,13 @@ class ItemRouter {
             GET("/{id}", handler::getItem)
             PUT("/{id}", handler::updateItem)
         }
+    }
+
+    @Bean
+    fun dataInitializer() = CommandLineRunner {
+        val first = Item(null, "first")
+        val second = Item(null, "second")
+        itemRepository.save(first)
+        itemRepository.save(second)
     }
 }

@@ -1,6 +1,6 @@
 spring:
   application:
-    name: greeting-ui
+    name: item-ui
   cloud:
     config:
       uri: http://localhost:8888
