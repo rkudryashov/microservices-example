@@ -9,7 +9,9 @@
 
 <body>
 <div class="container">
-    <h4 class="text-center" style="color:blue" th:text="${requestWithRestTemplate}">Some greeting</h4>
+    <p class="text-center" th:text="'Get item using RestTemplate: ' + ${requestWithRestTemplate}"></p>
+    <p class="text-center" th:text="'Get item using WebClient: ' + ${requestWithWebClient}"></p>
+    <p class="text-center" th:text="'Get item using FeignClient: ' + ${requestWithFeignClient}"></p>
 </div>
 </body>
 </html>

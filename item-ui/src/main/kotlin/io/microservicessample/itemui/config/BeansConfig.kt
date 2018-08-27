@@ -1,13 +1,14 @@
-package io.microservicessample.itemui
+package io.microservicessample.itemui.config
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced
+import org.springframework.cloud.client.loadbalancer.LoadBalancerClient
+import org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerExchangeFilterFunction
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.web.client.RestTemplate
 import org.springframework.web.reactive.function.client.WebClient
 
 @Configuration
-// todo functional registration
 class BeansConfig {
 
     @Bean
@@ -15,6 +16,7 @@ class BeansConfig {
     fun restTemplate() = RestTemplate()
 
     @Bean
-    @LoadBalanced
-    fun webClient() = WebClient.builder().build()
+    fun webClient(loadBalancerClient: LoadBalancerClient) = WebClient.builder()
+            .filter(LoadBalancerExchangeFilterFunction(loadBalancerClient))
+            .build()
 }

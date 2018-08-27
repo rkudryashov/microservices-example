@@ -11,9 +11,9 @@ class ItemServiceClient(
         private val webClient: WebClient
 ) {
 
-    fun requestWithRestTemplate(): String =
-            restTemplate.getForEntity("http://item-service/items/1", String::class.java).body ?: "No result"
+    fun requestWithRestTemplate(id: Long): String =
+            restTemplate.getForEntity("http://item-service/items/$id", String::class.java).body ?: "No result"
 
-    fun requestWithWebClient(): Mono<String> =
-            webClient.get().uri("http://item-service/items/2").retrieve().bodyToMono(String::class.java)
+    fun requestWithWebClient(id: Long): Mono<String> =
+            webClient.get().uri("http://item-service/items/${id}").retrieve().bodyToMono(String::class.java)
 }
