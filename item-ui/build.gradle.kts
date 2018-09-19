@@ -11,7 +11,7 @@ buildscript {
 }
 
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "1.2.61"
+    id("org.jetbrains.kotlin.jvm") version "1.2.70"
     id("io.spring.dependency-management") version "1.0.6.RELEASE"
 }
 
