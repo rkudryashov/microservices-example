@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository
 class ItemRepository {
 
     private val store = mutableMapOf<Long, Item>()
-    // todo check work
     private var nextId: Long = 0
 
     fun findById(id: Long) = store[id]

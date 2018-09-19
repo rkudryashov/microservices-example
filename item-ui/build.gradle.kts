@@ -37,8 +37,6 @@ dependencies {
     }
     testCompile("org.junit.jupiter:junit-jupiter-api")
     testRuntime("org.junit.jupiter:junit-jupiter-engine")
-    // todo do we need it?
-    testCompile("io.projectreactor:reactor-test")
 }
 
 dependencyManagement {

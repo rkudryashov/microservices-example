@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.http.MediaType
+import org.springframework.web.reactive.function.BodyInserters
 import org.springframework.web.reactive.function.server.ServerResponse
 import org.springframework.web.reactive.function.server.router
 
@@ -19,7 +20,7 @@ class RouteConfig {
 
     @Bean
     fun routes() = router {
-        ("/items").nest {
+        "/items".nest {
             GET("/greeting") {
                 val usernameHeader = it.headers().header("logged-in-user")
                 val username = if (usernameHeader.isEmpty()) "Default" else usernameHeader[0]
@@ -36,6 +37,9 @@ class RouteConfig {
                 )
 
                 ServerResponse.ok().contentType(MediaType.TEXT_HTML).render("example", model)
+            }
+            GET("/hystrix-fallback") {
+                ServerResponse.ok().contentType(MediaType.APPLICATION_JSON_UTF8).body(BodyInserters.fromObject(itemServiceFeignClient.testHystrixFallback()))
             }
         }
     }
