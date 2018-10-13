@@ -18,6 +18,7 @@ class WebSecurityConfig {
             .authorizeExchange()
             .pathMatchers("/login").permitAll()
             .pathMatchers("/static/**").permitAll()
+            .pathMatchers("/webjars/**").permitAll()
             .pathMatchers("/actuator/**").hasRole("ADMIN")
             .anyExchange().authenticated()
             .and()
