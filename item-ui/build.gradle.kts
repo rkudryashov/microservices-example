@@ -1,5 +1,8 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+val webjarsBootstrapVersion: String by project
+val webjarsLocatorVersion: String by project
+
 buildscript {
     repositories {
         mavenCentral()
@@ -32,6 +35,9 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     compile("org.jetbrains.kotlin:kotlin-reflect")
+    compile("org.webjars:bootstrap:$webjarsBootstrapVersion")
+    compile("org.webjars:webjars-locator:$webjarsLocatorVersion")
+
     testCompile("org.springframework.boot:spring-boot-starter-test") {
         exclude(module = "junit")
     }
