@@ -1,5 +1,6 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+val springCloudVersion: String by project
 val jaxbApiVersion = "2.3.0"
 val javaxActivationVersion = "1.1.1"
 
@@ -7,20 +8,17 @@ buildscript {
     repositories {
         mavenCentral()
     }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${extra["springBootVersion"]}")
-        classpath("org.jetbrains.kotlin:kotlin-allopen:${extra["kotlinVersion"]}")
-    }
 }
 
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "1.2.70"
-    id("io.spring.dependency-management") version "1.0.6.RELEASE"
-}
+    val kotlinVersion: String by project
+    val springBootPluginVersion: String by project
+    val springDependencyManagementPluginVersion: String by project
 
-apply {
-    plugin("kotlin-spring")
-    plugin("org.springframework.boot")
+    id("org.jetbrains.kotlin.jvm") version kotlinVersion
+    id("org.jetbrains.kotlin.plugin.spring") version kotlinVersion
+    id("org.springframework.boot") version springBootPluginVersion
+    id("io.spring.dependency-management") version springDependencyManagementPluginVersion
 }
 
 repositories {
@@ -32,7 +30,7 @@ dependencies {
     compile("org.springframework.cloud:spring-cloud-config-client")
     compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     compile("org.jetbrains.kotlin:kotlin-reflect")
-    // need to avoid 'java.lang.TypeNotPresentException: Type javax.xml.bind.JAXBContext not present' if run on jdk 9
+    // need to avoid 'java.lang.TypeNotPresentException: Type javax.xml.bind.JAXBContext not present' if run on jdk 11
     compile("javax.xml.bind:jaxb-api:$jaxbApiVersion")
     compile("com.sun.xml.bind:jaxb-impl:$jaxbApiVersion")
     compile("com.sun.xml.bind:jaxb-core:$jaxbApiVersion")
@@ -46,7 +44,7 @@ dependencies {
 
 dependencyManagement {
     imports {
-        mavenBom("org.springframework.cloud:spring-cloud-dependencies:${extra["springCloudDependenciesVersion"]}")
+        mavenBom("org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion")
     }
 }
 

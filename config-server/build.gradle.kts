@@ -1,23 +1,22 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+val springCloudVersion: String by project
+
 buildscript {
     repositories {
         mavenCentral()
     }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${extra["springBootVersion"]}")
-        classpath("org.jetbrains.kotlin:kotlin-allopen:${extra["kotlinVersion"]}")
-    }
 }
 
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "1.2.70"
-    id("io.spring.dependency-management") version "1.0.6.RELEASE"
-}
+    val kotlinVersion: String by project
+    val springBootPluginVersion: String by project
+    val springDependencyManagementPluginVersion: String by project
 
-apply {
-    plugin("kotlin-spring")
-    plugin("org.springframework.boot")
+    id("org.jetbrains.kotlin.jvm") version kotlinVersion
+    id("org.jetbrains.kotlin.plugin.spring") version kotlinVersion
+    id("org.springframework.boot") version springBootPluginVersion
+    id("io.spring.dependency-management") version springDependencyManagementPluginVersion
 }
 
 repositories {
@@ -37,7 +36,7 @@ dependencies {
 
 dependencyManagement {
     imports {
-        mavenBom("org.springframework.cloud:spring-cloud-dependencies:${extra["springCloudDependenciesVersion"]}")
+        mavenBom("org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion")
     }
 }
 
