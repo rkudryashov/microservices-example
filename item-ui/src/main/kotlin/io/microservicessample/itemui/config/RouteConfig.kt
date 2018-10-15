@@ -2,7 +2,6 @@ package io.microservicessample.itemui.config
 
 import io.microservicessample.itemui.service.ItemServiceClient
 import io.microservicessample.itemui.service.ItemServiceFeignClient
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.http.MediaType
@@ -13,13 +12,8 @@ import org.springframework.web.reactive.function.server.router
 @Configuration
 class RouteConfig {
 
-    @Autowired
-    private lateinit var itemServiceClient: ItemServiceClient
-    @Autowired
-    private lateinit var itemServiceFeignClient: ItemServiceFeignClient
-
     @Bean
-    fun routes() = router {
+    fun routes(itemServiceClient: ItemServiceClient, itemServiceFeignClient: ItemServiceFeignClient) = router {
         "/items".nest {
             GET("/greeting") {
                 val usernameHeader = it.headers().header("logged-in-user")
