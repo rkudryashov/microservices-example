@@ -18,6 +18,7 @@ class WebSecurityConfig {
             .authorizeExchange()
             .pathMatchers("/login").permitAll()
             .pathMatchers("/static/**").permitAll()
+            .pathMatchers("/favicon.ico").permitAll()
             .pathMatchers("/webjars/**").permitAll()
             .pathMatchers("/actuator/**").hasRole("ADMIN")
             .anyExchange().authenticated()
@@ -29,7 +30,7 @@ class WebSecurityConfig {
     fun reactiveUserDetailsService(): ReactiveUserDetailsService {
         // todo remove deprecated method
         val user = User.withDefaultPasswordEncoder()
-                .username("john_doe").password("qwerty").roles("USER")
+                .username("john_doe").password("qwerty").roles("USER", "ADMIN")
                 .build()
         val admin = User.withDefaultPasswordEncoder()
                 .username("admin").password("admin").roles("ADMIN")
