@@ -9,14 +9,10 @@ buildscript {
 }
 
 plugins {
-    val kotlinVersion: String by project
-    val springBootPluginVersion: String by project
-    val springDependencyManagementPluginVersion: String by project
-
-    id("org.jetbrains.kotlin.jvm") version kotlinVersion
-    id("org.jetbrains.kotlin.plugin.spring") version kotlinVersion
-    id("org.springframework.boot") version springBootPluginVersion
-    id("io.spring.dependency-management") version springDependencyManagementPluginVersion
+    id("org.jetbrains.kotlin.jvm")
+    id("org.jetbrains.kotlin.plugin.spring")
+    id("org.springframework.boot")
+    id("io.spring.dependency-management")
 }
 
 repositories {
