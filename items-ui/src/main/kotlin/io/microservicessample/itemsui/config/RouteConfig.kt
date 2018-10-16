@@ -14,27 +14,23 @@ class RouteConfig {
 
     @Bean
     fun routes(itemsServiceClient: ItemsServiceClient, itemsServiceFeignClient: ItemsServiceFeignClient) = router {
-        "/items".nest {
-            GET("/greeting") {
-                val usernameHeader = it.headers().header("logged-in-user")
-                val username = if (usernameHeader.isEmpty()) "Default" else usernameHeader[0]
-                val model = mapOf("greeting" to username)
+        GET("/example") {
+            val model = mapOf(
+                    "requestWithRestTemplate" to itemsServiceClient.requestWithRestTemplate(1),
+                    "requestWithWebClient" to itemsServiceClient.requestWithWebClient(1),
+                    "requestWithFeignClient" to itemsServiceFeignClient.getItem(1)
+            )
+            ServerResponse.ok().contentType(MediaType.TEXT_HTML).render("example", model)
+        }
+        GET("/greeting") {
+            val usernameHeader = it.headers().header("logged-in-user")
+            val username = if (usernameHeader.isEmpty()) "Default" else usernameHeader[0]
+            val model = mapOf("greeting" to username)
 
-                ServerResponse.ok().contentType(MediaType.TEXT_HTML).render("greeting", model)
-            }
-            // todo more appropriate name
-            GET("/example") {
-                val model = mapOf(
-                        "requestWithRestTemplate" to itemsServiceClient.requestWithRestTemplate(1),
-                        "requestWithWebClient" to itemsServiceClient.requestWithWebClient(1),
-                        "requestWithFeignClient" to itemsServiceFeignClient.getItem(1)
-                )
-
-                ServerResponse.ok().contentType(MediaType.TEXT_HTML).render("example", model)
-            }
-            GET("/hystrix-fallback") {
-                ServerResponse.ok().contentType(MediaType.APPLICATION_JSON_UTF8).body(BodyInserters.fromObject(itemsServiceFeignClient.testHystrixFallback()))
-            }
+            ServerResponse.ok().contentType(MediaType.TEXT_HTML).render("greeting", model)
+        }
+        GET("/hystrix-fallback") {
+            ServerResponse.ok().contentType(MediaType.APPLICATION_JSON_UTF8).body(BodyInserters.fromObject(itemsServiceFeignClient.testHystrixFallback()))
         }
     }
 }

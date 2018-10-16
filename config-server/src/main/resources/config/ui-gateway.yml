@@ -20,7 +20,7 @@ spring:
 
 logging:
   level:
-    org.springframework.cloud.gateway.handler.RoutePredicateHandlerMapping : debug
+    org.springframework.cloud.gateway.handler.RoutePredicateHandlerMapping: debug
 
 management:
   endpoints:
