@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: items-service
+  cloud:
+    config:
+      uri: http://localhost:8888
