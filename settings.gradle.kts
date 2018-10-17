@@ -1,4 +1,4 @@
-rootProject.name = "microservices-sample"
+rootProject.name = "microservices-example"
 
 include("ui-gateway", "eureka-server", "config-server", "items-ui", "items-service")
 

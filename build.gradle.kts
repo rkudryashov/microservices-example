@@ -1,3 +1,3 @@
 allprojects {
-    group = "io.microservicessample"
+    group = "io.microservicesexample"
 }
