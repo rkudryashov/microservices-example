@@ -18,7 +18,7 @@ class RouterTest {
     @Test
     fun testGreeting() {
         webTestClient
-                .get().uri("/items/greeting")
+                .get().uri("/greeting")
                 .header("logged-in-user", "test")
                 .accept(MediaType.TEXT_PLAIN)
                 .exchange()
