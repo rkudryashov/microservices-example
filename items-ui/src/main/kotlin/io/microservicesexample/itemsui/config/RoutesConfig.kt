@@ -10,7 +10,7 @@ import org.springframework.web.reactive.function.server.ServerResponse
 import org.springframework.web.reactive.function.server.router
 
 @Configuration
-class RouteConfig {
+class RoutesConfig {
 
     @Bean
     fun routes(itemsServiceClient: ItemsServiceClient, itemsServiceFeignClient: ItemsServiceFeignClient) = router {

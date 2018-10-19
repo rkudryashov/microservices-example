@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.User
 import org.springframework.security.web.server.SecurityWebFilterChain
 
 @Configuration
-class WebSecurityConfig {
+class SecurityConfig {
 
     @Bean
     fun springWebFilterChain(http: ServerHttpSecurity): SecurityWebFilterChain = http
@@ -20,7 +20,7 @@ class WebSecurityConfig {
             .pathMatchers("/static/**").permitAll()
             .pathMatchers("/favicon.ico").permitAll()
             .pathMatchers("/webjars/**").permitAll()
-            .pathMatchers("/actuator/**").hasRole("ADMIN")
+            .pathMatchers("/actuator/**").permitAll()
             .anyExchange().authenticated()
             .and()
             .csrf().disable()
@@ -30,7 +30,7 @@ class WebSecurityConfig {
     fun reactiveUserDetailsService(): ReactiveUserDetailsService {
         // todo remove deprecated method
         val user = User.withDefaultPasswordEncoder()
-                .username("john_doe").password("qwerty").roles("USER", "ADMIN")
+                .username("john_doe").password("qwerty").roles("USER")
                 .build()
         val admin = User.withDefaultPasswordEncoder()
                 .username("admin").password("admin").roles("ADMIN")
