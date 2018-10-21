@@ -1,3 +1,6 @@
 spring:
   application:
     name: eureka-server
+  cloud:
+    config:
+      fail-fast: true
