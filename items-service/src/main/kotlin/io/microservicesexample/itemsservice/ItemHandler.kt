@@ -1,6 +1,6 @@
 package io.microservicesexample.itemsservice
 
-import org.springframework.http.MediaType.APPLICATION_JSON
+import org.springframework.http.MediaType.APPLICATION_JSON_UTF8
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.BodyInserters.fromObject
 import org.springframework.web.reactive.function.server.ServerRequest
@@ -9,20 +9,27 @@ import org.springframework.web.reactive.function.server.ServerResponse
 @Component
 class ItemHandler(private val itemRepository: ItemRepository) {
 
-    @Suppress("UNUSED_PARAMETER")
     fun getAllItems(request: ServerRequest) = ServerResponse.ok()
-            .contentType(APPLICATION_JSON)
+            .contentType(APPLICATION_JSON_UTF8)
             .body(fromObject(itemRepository.findAll()))
 
     fun getItem(request: ServerRequest) = ServerResponse.ok()
-            .contentType(APPLICATION_JSON)
-            .body(fromObject(itemRepository.findById(request.pathVariable("id").toLong()) ?: Exception("")))
+            .contentType(APPLICATION_JSON_UTF8)
+            .body(fromObject(itemRepository.findById(request.pathVariable("id").toLong())
+                    ?: IllegalStateException("Request doesn't contain id")))
 
-    fun updateItem(request: ServerRequest) = request.bodyToMono(Item::class.java).flatMap(::saveAndRespond)
+    fun updateItem(request: ServerRequest) = request.bodyToMono(Item::class.java).flatMap {
+        if (it.id != request.pathVariable("id").toLong()) {
+            throw IllegalStateException("Item.id not equals path variable id")
+        }
+        ServerResponse.ok()
+                .contentType(APPLICATION_JSON_UTF8)
+                .body(fromObject(itemRepository.save(it)))
+    }
 
-    fun addItem(request: ServerRequest) = request.bodyToMono(Item::class.java).flatMap(::saveAndRespond)
-
-    private fun saveAndRespond(item: Item) = ServerResponse.ok()
-            .contentType(APPLICATION_JSON)
-            .body(fromObject(itemRepository.save(item)))
+    fun addItem(request: ServerRequest) = request.bodyToMono(Item::class.java).flatMap {
+        ServerResponse.ok()
+                .contentType(APPLICATION_JSON_UTF8)
+                .body(fromObject(itemRepository.save(it)))
+    }
 }

@@ -1,6 +1,6 @@
 package io.microservicesexample.itemsservice
 
-class Item(
+data class Item(
         var id: Long?,
         val name: String
 )

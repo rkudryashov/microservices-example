@@ -1,9 +1,16 @@
 package io.microservicesexample.itemsservice
 
 import org.springframework.stereotype.Repository
+import javax.annotation.PostConstruct
 
 @Repository
 class ItemRepository {
+
+    @PostConstruct
+    private fun init() {
+        save(Item(null, "first"))
+        save(Item(null, "second"))
+    }
 
     private val store = mutableMapOf<Long, Item>()
     private var nextId: Long = 0
