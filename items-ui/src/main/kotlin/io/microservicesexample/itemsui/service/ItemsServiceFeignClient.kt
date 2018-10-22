@@ -31,7 +31,7 @@ interface ItemsServiceFeignClient {
 
             override fun testHystrixFallback(): String {
                 log.error("This is expected error")
-                return "Some error"
+                return "{\"error\" : \"Some error\"}"
             }
         }
     }

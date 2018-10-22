@@ -30,7 +30,8 @@ class RoutesConfig {
             ServerResponse.ok().contentType(MediaType.TEXT_HTML).render("greeting", model)
         }
         GET("/hystrix-fallback") {
-            ServerResponse.ok().contentType(MediaType.APPLICATION_JSON_UTF8).body(BodyInserters.fromObject(itemsServiceFeignClient.testHystrixFallback()))
+            val response = itemsServiceFeignClient.testHystrixFallback()
+            ServerResponse.ok().contentType(MediaType.APPLICATION_JSON_UTF8).body(BodyInserters.fromObject(response))
         }
     }
 }
