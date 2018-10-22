@@ -16,11 +16,11 @@ class ItemHandler(private val itemRepository: ItemRepository) {
     fun getItem(request: ServerRequest) = ServerResponse.ok()
             .contentType(APPLICATION_JSON_UTF8)
             .body(fromObject(itemRepository.findById(request.pathVariable("id").toLong())
-                    ?: IllegalStateException("Request doesn't contain id")))
+                    ?: ItemsServiceException("Request doesn't contain id")))
 
     fun updateItem(request: ServerRequest) = request.bodyToMono(Item::class.java).flatMap {
         if (it.id != request.pathVariable("id").toLong()) {
-            throw IllegalStateException("Item.id not equals path variable id")
+            throw ItemsServiceException("Item.id not equals path variable id")
         }
         ServerResponse.ok()
                 .contentType(APPLICATION_JSON_UTF8)
