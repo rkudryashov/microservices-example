@@ -15,5 +15,5 @@ class ItemsServiceClient(
             restTemplate.getForEntity("http://items-service/items/$id", String::class.java).body ?: "No result"
 
     fun requestWithWebClient(id: Long): Mono<String> =
-            webClient.get().uri("http://items-service/items/${id}").retrieve().bodyToMono(String::class.java)
+            webClient.get().uri("http://items-service/items/$id").retrieve().bodyToMono(String::class.java)
 }
