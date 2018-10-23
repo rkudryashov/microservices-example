@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component
 import javax.annotation.PostConstruct
 
 @Component
-class EurekaMetadataModificationService(private val aim: ApplicationInfoManager) {
+class EurekaAdditionalMetadataReporter(private val aim: ApplicationInfoManager) {
 
     @PostConstruct
     private fun addMetadata() {
