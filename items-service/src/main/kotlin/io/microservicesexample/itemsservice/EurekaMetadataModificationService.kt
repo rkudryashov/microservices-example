@@ -1,4 +1,4 @@
-package io.microservicesexample.uigateway.misc
+package io.microservicesexample.itemsservice
 
 import com.netflix.appinfo.ApplicationInfoManager
 import org.springframework.stereotype.Component
@@ -9,6 +9,6 @@ class EurekaMetadataModificationService(private val aim: ApplicationInfoManager)
 
     @PostConstruct
     private fun addMetadata() {
-        aim.info.metadata["description"] = "Some description"
+        aim.registerAppMetadata(mapOf("description" to "Some description"))
     }
 }
