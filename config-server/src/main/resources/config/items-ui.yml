@@ -4,3 +4,7 @@ server:
 feign:
   hystrix:
     enabled: true
+
+logging:
+  level:
+    org.springframework.web.reactive.function.server.RouterFunctions: DEBUG

@@ -25,6 +25,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-webflux")
     compile("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
     compile("org.springframework.cloud:spring-cloud-config-client")
+    compile("org.springframework.cloud:spring-cloud-starter-sleuth")
     compile("org.springframework.cloud:spring-cloud-starter-openfeign")
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
