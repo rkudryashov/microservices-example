@@ -25,7 +25,8 @@ class RoutesConfig {
         GET("/greeting") {
             val usernameHeader = it.headers().header("logged-in-user")
             val username = if (usernameHeader.isEmpty()) "Default" else usernameHeader[0]
-            val model = mapOf("greeting" to username)
+            val userRoles = it.headers().header("logged-in-user-roles")
+            val model = mapOf("greeting" to "Hi, $username. Your roles are: $userRoles")
 
             ServerResponse.ok().contentType(MediaType.TEXT_HTML).render("greeting", model)
         }
