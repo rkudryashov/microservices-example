@@ -7,6 +7,9 @@ server:
     key-store-type: PKCS12
 
 spring:
+  mvc:
+    favicon:
+      enabled: false
   webflux:
     static-path-pattern: /static/**
   cloud:
