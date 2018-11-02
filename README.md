@@ -4,17 +4,17 @@ This is example of microservice architecture pattern
 ### Example consist of 5 microservices
 ![-](/etc/images/diagram.png)
 
-### Service Discovery server
-Eureka server is used
-
 ### Config server
 This microservice stores configs of all microservices
 
-### Items UI
-Example of UI
+### Service discovery server
+Eureka server is used
 
 ### Items service
 Example of backend
+
+### Items UI
+Example of UI
 
 ### UI gateway
 This microservice performs authentication and routing to UI microservice
@@ -28,6 +28,14 @@ and with *qwerty* password.
 
 ##### Distributed tracing
 ![-](/etc/images/sleuth_tracing.png)
+
+### Building
+`gradlew clean build`
+
+### Running
+Run all microservices in the same order as they are listed. You should get something like:
+
+![-](/etc/images/run_dashboard.png)
 
 ### Implemented with
 * Java 11
