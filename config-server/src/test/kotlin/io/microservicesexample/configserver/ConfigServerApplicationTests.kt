@@ -13,4 +13,5 @@ class ConfigServerApplicationTests {
     fun contextLoads() {
     }
 
+    // todo test for configs loading - data driven junit 5 tests
 }
