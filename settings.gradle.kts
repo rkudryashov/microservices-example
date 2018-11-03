@@ -6,11 +6,11 @@ pluginManagement {
     resolutionStrategy {
         eachPlugin {
             when (requested.id.id) {
-                "org.jetbrains.kotlin.plugin.spring" -> {
+                "org.jetbrains.kotlin.jvm" -> {
                     val kotlinVersion: String by settings
                     useVersion(kotlinVersion)
                 }
-                "org.jetbrains.kotlin.jvm" -> {
+                "org.jetbrains.kotlin.plugin.spring" -> {
                     val kotlinVersion: String by settings
                     useVersion(kotlinVersion)
                 }

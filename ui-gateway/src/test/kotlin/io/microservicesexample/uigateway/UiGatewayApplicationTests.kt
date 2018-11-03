@@ -32,5 +32,5 @@ class UiGatewayApplicationTests {
                 .expectHeader().contentType(MediaType.IMAGE_PNG)
     }
 
-    // todo more tests
+    // todo more tests. Tests with user credentials
 }
