@@ -9,8 +9,8 @@ buildscript {
 }
 
 plugins {
-    id("org.jetbrains.kotlin.jvm")
-    id("org.jetbrains.kotlin.plugin.spring")
+    kotlin("jvm")
+    kotlin("plugin.spring")
     id("org.springframework.boot")
     id("io.spring.dependency-management")
 }
@@ -20,9 +20,9 @@ repositories {
 }
 
 dependencies {
+    compile(kotlin("stdlib-jdk8"))
+    compile(kotlin("reflect"))
     compile("org.springframework.cloud:spring-cloud-config-server")
-    compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    compile("org.jetbrains.kotlin:kotlin-reflect")
     testCompile("org.springframework.boot:spring-boot-starter-test") {
         exclude(module = "junit")
     }
