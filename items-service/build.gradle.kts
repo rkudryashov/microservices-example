@@ -20,16 +20,16 @@ repositories {
 }
 
 dependencies {
-    compile(kotlin("stdlib-jdk8"))
-    compile(kotlin("reflect"))
-    compile("org.springframework.boot:spring-boot-starter-webflux")
-    compile("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
-    compile("org.springframework.cloud:spring-cloud-config-client")
-    compile("org.springframework.cloud:spring-cloud-starter-sleuth")
-    testCompile("org.springframework.boot:spring-boot-starter-test") {
+    implementation(kotlin("stdlib-jdk8"))
+    implementation(kotlin("reflect"))
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
+    implementation("org.springframework.cloud:spring-cloud-config-client")
+    implementation("org.springframework.cloud:spring-cloud-starter-sleuth")
+    testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(module = "junit")
     }
-    testCompile("org.junit.jupiter:junit-jupiter-api")
+    testImplementation("org.junit.jupiter:junit-jupiter-api")
     testRuntime("org.junit.jupiter:junit-jupiter-engine")
 }
 

@@ -22,21 +22,21 @@ repositories {
 }
 
 dependencies {
-    compile(kotlin("stdlib-jdk8"))
-    compile(kotlin("reflect"))
-    compile("org.springframework.boot:spring-boot-starter-webflux")
-    compile("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
-    compile("org.springframework.cloud:spring-cloud-config-client")
-    compile("org.springframework.cloud:spring-cloud-starter-sleuth")
-    compile("org.springframework.cloud:spring-cloud-starter-openfeign")
-    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
-    compile("org.webjars:bootstrap:$webjarsBootstrapVersion")
-    compile("org.webjars:webjars-locator:$webjarsLocatorVersion")
+    implementation(kotlin("stdlib-jdk8"))
+    implementation(kotlin("reflect"))
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
+    implementation("org.springframework.cloud:spring-cloud-config-client")
+    implementation("org.springframework.cloud:spring-cloud-starter-sleuth")
+    implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
+    implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
+    implementation("org.webjars:bootstrap:$webjarsBootstrapVersion")
+    implementation("org.webjars:webjars-locator:$webjarsLocatorVersion")
 
-    testCompile("org.springframework.boot:spring-boot-starter-test") {
+    testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(module = "junit")
     }
-    testCompile("org.junit.jupiter:junit-jupiter-api")
+    testImplementation("org.junit.jupiter:junit-jupiter-api")
     testRuntime("org.junit.jupiter:junit-jupiter-engine")
 }
 

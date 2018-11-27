@@ -22,19 +22,19 @@ repositories {
 }
 
 dependencies {
-    compile(kotlin("stdlib-jdk8"))
-    compile(kotlin("reflect"))
-    compile("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server")
-    compile("org.springframework.cloud:spring-cloud-config-client")
+    implementation(kotlin("stdlib-jdk8"))
+    implementation(kotlin("reflect"))
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server")
+    implementation("org.springframework.cloud:spring-cloud-config-client")
     // need to avoid 'java.lang.TypeNotPresentException: Type javax.xml.bind.JAXBContext not present' if run on jdk 11
-    compile("javax.xml.bind:jaxb-api:$jaxbApiVersion")
-    compile("com.sun.xml.bind:jaxb-impl:$jaxbApiVersion")
-    compile("com.sun.xml.bind:jaxb-core:$jaxbApiVersion")
-    compile("javax.activation:activation:$javaxActivationVersion")
-    testCompile("org.springframework.boot:spring-boot-starter-test") {
+    implementation("javax.xml.bind:jaxb-api:$jaxbApiVersion")
+    implementation("com.sun.xml.bind:jaxb-impl:$jaxbApiVersion")
+    implementation("com.sun.xml.bind:jaxb-core:$jaxbApiVersion")
+    implementation("javax.activation:activation:$javaxActivationVersion")
+    testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(module = "junit")
     }
-    testCompile("org.junit.jupiter:junit-jupiter-api")
+    testImplementation("org.junit.jupiter:junit-jupiter-api")
     testRuntime("org.junit.jupiter:junit-jupiter-engine")
 }
 
