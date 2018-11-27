@@ -40,7 +40,7 @@ dependencyManagement {
 }
 
 tasks {
-    tasks.withType<Test> {
+    withType<Test> {
         useJUnitPlatform()
     }
     withType<KotlinCompile> {
