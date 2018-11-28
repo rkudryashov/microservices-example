@@ -10,10 +10,10 @@ class RestApi {
     @Bean
     fun itemsRouter(handler: ItemHandler) = router {
         path("/items").nest {
-            GET("/", handler::getAllItems)
-            POST("/", handler::addItem)
-            GET("/{id}", handler::getItem)
-            PUT("/{id}", handler::updateItem)
+            GET("/", handler::getAll)
+            POST("/", handler::add)
+            GET("/{id}", handler::getOne)
+            PUT("/{id}", handler::update)
         }
     }
 }

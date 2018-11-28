@@ -11,7 +11,7 @@ This is an example of microservice architecture pattern implemented with followi
     * Eureka
     * Hystrix
     * Ribbon
-* Gradle with Gradle Kotlin DSL
+* Gradle with Kotlin DSL
 * JUnit
 * Other: Thymeleaf, Bootstrap, Webjars
 

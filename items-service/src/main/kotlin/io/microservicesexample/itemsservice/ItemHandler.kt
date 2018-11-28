@@ -9,16 +9,16 @@ import org.springframework.web.reactive.function.server.ServerResponse
 @Component
 class ItemHandler(private val itemRepository: ItemRepository) {
 
-    fun getAllItems(request: ServerRequest) = ServerResponse.ok()
+    fun getAll(request: ServerRequest) = ServerResponse.ok()
             .contentType(APPLICATION_JSON_UTF8)
             .body(fromObject(itemRepository.findAll()))
 
-    fun getItem(request: ServerRequest) = ServerResponse.ok()
+    fun getOne(request: ServerRequest) = ServerResponse.ok()
             .contentType(APPLICATION_JSON_UTF8)
             .body(fromObject(itemRepository.findById(request.pathVariable("id").toLong())
                     ?: ItemsServiceException("Request doesn't contain id")))
 
-    fun updateItem(request: ServerRequest) = request.bodyToMono(Item::class.java).flatMap {
+    fun update(request: ServerRequest) = request.bodyToMono(Item::class.java).flatMap {
         if (it.id != request.pathVariable("id").toLong()) {
             throw ItemsServiceException("Item.id not equals path variable id")
         }
@@ -27,7 +27,7 @@ class ItemHandler(private val itemRepository: ItemRepository) {
                 .body(fromObject(itemRepository.save(it)))
     }
 
-    fun addItem(request: ServerRequest) = request.bodyToMono(Item::class.java).flatMap {
+    fun add(request: ServerRequest) = request.bodyToMono(Item::class.java).flatMap {
         ServerResponse.ok()
                 .contentType(APPLICATION_JSON_UTF8)
                 .body(fromObject(itemRepository.save(it)))
