@@ -8,7 +8,5 @@ import javax.annotation.PostConstruct
 class EurekaAdditionalMetadataReporter(private val aim: ApplicationInfoManager) {
 
     @PostConstruct
-    private fun addMetadata() {
-        aim.registerAppMetadata(mapOf("description" to "Some description"))
-    }
+    private fun addMetadata() = aim.registerAppMetadata(mapOf("description" to "Some description"))
 }
