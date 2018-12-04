@@ -33,7 +33,7 @@ example of [sending additional metadata](/items-service/src/main/kotlin/io/micro
 
 ### Items UI
 This is an example of front-end which uses Thymeleaf for HTML-pages rendering and Bootstrap CSS framework (plugs in with 
-help of Webjars). Application contains a few example of interacting with back-end (Items service) by using different API:
+help of Webjars). Application contains a few examples of interacting with back-end (Items service) by using different API:
 * [using](items-ui/src/main/kotlin/io/microservicesexample/itemsui/service/ItemsServiceClient.kt) RestTemplate
 * [using](items-ui/src/main/kotlin/io/microservicesexample/itemsui/service/ItemsServiceClient.kt) WebClient
 * [using](items-ui/src/main/kotlin/io/microservicesexample/itemsui/service/ItemsServiceFeignClient.kt) FeignClient and 
@@ -67,7 +67,8 @@ and with *qwerty* password.
 This schema is simple, see [here](https://spring.io/projects/spring-cloud-sleuth) for details.
 
 ### Building
-`gradlew clean build`
+Depending of your OS: `gradlew clean build` or `./gradlew clean build`
+Used Gradle 5 requires at least JDK 8.
 
 ### Running
 Run all microservices in the same order as they are listed. If you are using Intellij IDEA with enabled Run Dashboard you 
