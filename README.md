@@ -69,7 +69,8 @@ and with *qwerty* password.
 This schema is simple, see [here](https://spring.io/projects/spring-cloud-sleuth) for details.
 
 ### Building
-Depending of your OS: `gradlew clean build` or `./gradlew clean build`
+Depending of your OS: `gradlew clean build` or `./gradlew clean build`.
+
 Used Gradle 5 requires at least JDK 8.
 
 ### Running
