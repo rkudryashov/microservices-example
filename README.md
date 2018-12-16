@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/rkudryashov/microservices-example.svg?branch=master)](https://travis-ci.org/rkudryashov/microservices-example)
+[![codecov](https://codecov.io/gh/rkudryashov/microservices-example/branch/master/graph/badge.svg)](https://codecov.io/gh/rkudryashov/microservices-example)
 
 # Microservices example
 This is an example of microservice architecture pattern implemented with following stack of Java-technologies:
