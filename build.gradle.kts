@@ -11,7 +11,7 @@ plugins {
 }
 
 tasks.register<JacocoReport>("jacocoRootReport") {
-    classDirectories.setFrom(subprojects.map { it.buildDir.resolve("classes") })
+    classDirectories.setFrom(subprojects.map { it.buildDir.resolve("classes/kotlin/main") })
     executionData(subprojects.map { it.buildDir.resolve("jacoco/test.exec") })
     reports {
         html.isEnabled = false
