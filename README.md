@@ -2,6 +2,10 @@
 [![codecov](https://codecov.io/gh/rkudryashov/microservices-example/branch/master/graph/badge.svg)](https://codecov.io/gh/rkudryashov/microservices-example)
 
 # Microservices example
+There are articles with more detailed explanation about this project: in 
+[English](https://dzone.com/articles/microservice-architecture-on-the-modern-stack-of-j) and in 
+[Russian](https://habr.com/post/431474/).
+
 This is an example of microservice architecture pattern implemented with following stack of Java-technologies:
 * JDK 11
 * Kotlin
