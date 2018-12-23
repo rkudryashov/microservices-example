@@ -36,8 +36,4 @@ tasks {
             }
         }
     }
-
-    "check" {
-        dependsOn("jacocoCoverageVerification")
-    }
 }
