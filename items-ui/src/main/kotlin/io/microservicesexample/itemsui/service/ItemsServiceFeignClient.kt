@@ -1,7 +1,7 @@
 package io.microservicesexample.itemsui.service
 
 import feign.hystrix.FallbackFactory
-import io.microservicesexample.itemsui.ItemsUiException
+import io.microservicesexample.itemsui.exception.ItemsUiException
 import org.slf4j.LoggerFactory
 import org.springframework.cloud.openfeign.FeignClient
 import org.springframework.stereotype.Component
