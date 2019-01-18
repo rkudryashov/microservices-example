@@ -1,4 +1,4 @@
-package io.microservicesexample.itemsservice
+package io.microservicesexample.itemsservice.misc
 
 import com.netflix.appinfo.ApplicationInfoManager
 import org.springframework.stereotype.Component

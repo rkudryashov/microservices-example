@@ -13,9 +13,11 @@ class BeansConfig {
 
     @Bean
     @LoadBalanced
+    // todo set url
     fun restTemplate() = RestTemplate()
 
     @Bean
+    // todo fix pass url
     fun webClient(loadBalancerClient: LoadBalancerClient) = WebClient.builder()
             .filter(LoadBalancerExchangeFilterFunction(loadBalancerClient))
             .build()

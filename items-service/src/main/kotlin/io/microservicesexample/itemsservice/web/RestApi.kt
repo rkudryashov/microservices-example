@@ -1,4 +1,4 @@
-package io.microservicesexample.itemsservice
+package io.microservicesexample.itemsservice.web
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

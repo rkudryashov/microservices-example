@@ -1,5 +1,6 @@
-package io.microservicesexample.itemsservice
+package io.microservicesexample.itemsservice.web
 
+import io.microservicesexample.itemsservice.model.Item
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.containsInAnyOrder
 import org.hamcrest.Matchers.equalTo
@@ -33,8 +34,8 @@ class RestApiTest {
                 .hasSize(2)
                 .returnResult().apply {
                     assertThat(this.responseBody, containsInAnyOrder(
-                            Item(1, "first"),
-                            Item(2, "second")
+                        Item(1, "first"),
+                        Item(2, "second")
                     ))
                 }
     }
@@ -82,7 +83,12 @@ class RestApiTest {
                 .expectHeader().contentType(MediaType.APPLICATION_JSON_UTF8)
                 .expectBody(Item::class.java)
                 .returnResult().apply {
-                    assertThat(this.responseBody, equalTo(Item(2, "more than 2")))
+                    assertThat(this.responseBody, equalTo(
+                        Item(
+                            2,
+                            "more than 2"
+                        )
+                    ))
                 }
     }
 }

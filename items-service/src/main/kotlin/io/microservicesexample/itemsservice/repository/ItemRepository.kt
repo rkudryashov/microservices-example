@@ -1,5 +1,6 @@
-package io.microservicesexample.itemsservice
+package io.microservicesexample.itemsservice.repository
 
+import io.microservicesexample.itemsservice.model.Item
 import org.springframework.stereotype.Repository
 import javax.annotation.PostConstruct
 
