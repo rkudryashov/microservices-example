@@ -14,11 +14,11 @@ class AddCredentialsGlobalFilter : GlobalFilter {
     private val loggedInUserRolesHeader = "logged-in-user-roles"
 
     override fun filter(exchange: ServerWebExchange, chain: GatewayFilterChain) = exchange.getPrincipal<Principal>()
-            .flatMap {
-                val request = exchange.request.mutate()
-                        .header(loggedInUserHeader, it.name)
-                        .header(loggedInUserRolesHeader, (it as Authentication).authorities?.joinToString(";") ?: "")
-                        .build()
-                chain.filter(exchange.mutate().request(request).build())
-            }
+        .flatMap {
+            val request = exchange.request.mutate()
+                .header(loggedInUserHeader, it.name)
+                .header(loggedInUserRolesHeader, (it as Authentication).authorities?.joinToString(";") ?: "")
+                .build()
+            chain.filter(exchange.mutate().request(request).build())
+        }
 }

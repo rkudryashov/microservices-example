@@ -11,10 +11,12 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 import org.springframework.test.web.reactive.server.WebTestClient
 
 @ExtendWith(SpringExtension::class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, properties = [
-    "spring.cloud.config.enabled:false",
-    "feign.hystrix.enabled:true"
-])
+@SpringBootTest(
+    webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, properties = [
+        "spring.cloud.config.enabled:false",
+        "feign.hystrix.enabled:true"
+    ]
+)
 class RouterTest {
 
     @Autowired
@@ -23,23 +25,23 @@ class RouterTest {
     @Test
     fun testGreeting() {
         webTestClient
-                .get().uri("/greeting")
-                .header("logged-in-user", "test")
-                .accept(MediaType.TEXT_PLAIN)
-                .exchange()
-                .expectStatus().isOk
+            .get().uri("/greeting")
+            .header("logged-in-user", "test")
+            .accept(MediaType.TEXT_PLAIN)
+            .exchange()
+            .expectStatus().isOk
     }
 
     @Test
     fun testHystrixFallback() {
         webTestClient
-                .get().uri("/hystrix-fallback")
-                .exchange()
-                .expectStatus().isOk
-                .expectHeader().contentType(MediaType.APPLICATION_JSON_UTF8)
-                .expectBody(String::class.java)
-                .returnResult().apply {
-                    MatcherAssert.assertThat(this.responseBody, Matchers.equalTo("{\"error\" : \"Some error\"}"))
-                }
+            .get().uri("/hystrix-fallback")
+            .exchange()
+            .expectStatus().isOk
+            .expectHeader().contentType(MediaType.APPLICATION_JSON_UTF8)
+            .expectBody(String::class.java)
+            .returnResult().apply {
+                MatcherAssert.assertThat(this.responseBody, Matchers.equalTo("{\"error\" : \"Some error\"}"))
+            }
     }
 }

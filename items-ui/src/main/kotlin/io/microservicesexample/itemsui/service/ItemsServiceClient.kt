@@ -7,13 +7,13 @@ import reactor.core.publisher.Mono
 
 @Service
 class ItemsServiceClient(
-        private val restTemplate: RestTemplate,
-        private val webClient: WebClient
+    private val restTemplate: RestTemplate,
+    private val webClient: WebClient
 ) {
 
     fun requestWithRestTemplate(id: Long): String =
-            restTemplate.getForEntity("http://items-service/items/$id", String::class.java).body ?: "No result"
+        restTemplate.getForEntity("http://items-service/items/$id", String::class.java).body ?: "No result"
 
     fun requestWithWebClient(id: Long): Mono<String> =
-            webClient.get().uri("http://items-service/items/$id").retrieve().bodyToMono(String::class.java)
+        webClient.get().uri("http://items-service/items/$id").retrieve().bodyToMono(String::class.java)
 }

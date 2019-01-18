@@ -19,6 +19,6 @@ class BeansConfig {
     @Bean
     // todo fix pass url
     fun webClient(loadBalancerClient: LoadBalancerClient) = WebClient.builder()
-            .filter(LoadBalancerExchangeFilterFunction(loadBalancerClient))
-            .build()
+        .filter(LoadBalancerExchangeFilterFunction(loadBalancerClient))
+        .build()
 }

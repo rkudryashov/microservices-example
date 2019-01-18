@@ -13,28 +13,28 @@ class SecurityConfig {
 
     @Bean
     fun springWebFilterChain(http: ServerHttpSecurity): SecurityWebFilterChain = http
-            .formLogin().loginPage("/login")
-            .and()
-            .authorizeExchange()
-            .pathMatchers("/login").permitAll()
-            .pathMatchers("/static/**").permitAll()
-            .pathMatchers("/favicon.ico").permitAll()
-            .pathMatchers("/webjars/**").permitAll()
-            .pathMatchers("/actuator/**").permitAll()
-            .anyExchange().authenticated()
-            .and()
-            .csrf().disable()
-            .build()
+        .formLogin().loginPage("/login")
+        .and()
+        .authorizeExchange()
+        .pathMatchers("/login").permitAll()
+        .pathMatchers("/static/**").permitAll()
+        .pathMatchers("/favicon.ico").permitAll()
+        .pathMatchers("/webjars/**").permitAll()
+        .pathMatchers("/actuator/**").permitAll()
+        .anyExchange().authenticated()
+        .and()
+        .csrf().disable()
+        .build()
 
     @Bean
     fun reactiveUserDetailsService(): ReactiveUserDetailsService {
         // todo remove deprecated method
         val user = User.withDefaultPasswordEncoder()
-                .username("john_doe").password("qwerty").roles("USER")
-                .build()
+            .username("john_doe").password("qwerty").roles("USER")
+            .build()
         val admin = User.withDefaultPasswordEncoder()
-                .username("admin").password("admin").roles("ADMIN")
-                .build()
+            .username("admin").password("admin").roles("ADMIN")
+            .build()
         return MapReactiveUserDetailsService(user, admin)
     }
 }

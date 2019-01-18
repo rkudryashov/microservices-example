@@ -18,18 +18,18 @@ class UiGatewayApplicationTests {
     @Test
     fun shouldReturnUnauthorizedHttpStatus() {
         webTestClient.get().uri("/anything/123")
-                .exchange()
-                .expectStatus().is3xxRedirection
-                .expectHeader().valueEquals("Location", "/login")
-                .expectBody().isEmpty
+            .exchange()
+            .expectStatus().is3xxRedirection
+            .expectHeader().valueEquals("Location", "/login")
+            .expectBody().isEmpty
     }
 
     @Test
     fun shouldReturnLogo() {
         webTestClient.get().uri("/static/images/logo.png")
-                .exchange()
-                .expectStatus().isOk
-                .expectHeader().contentType(MediaType.IMAGE_PNG)
+            .exchange()
+            .expectStatus().isOk
+            .expectHeader().contentType(MediaType.IMAGE_PNG)
     }
 
     // todo more tests. Tests with user credentials
