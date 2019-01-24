@@ -13,19 +13,17 @@ class ItemRepository {
         save(Item(null, "second"))
     }
 
-    private val store = mutableMapOf<Long, Item>()
-    private var nextId: Long = 0
+    private val store = mutableListOf<Item>()
 
-    fun findById(id: Long) = store[id]
+    fun findById(id: Long) = store.singleOrNull { item -> item.id == id }
 
-    fun findAll() = store.values
+    fun findAll() = store
 
     fun save(item: Item): Item {
         if (item.id == null) {
-            nextId = nextId.inc()
-            item.id = nextId
+            item.id = (store.size + 1).toLong()
         }
-        item.id?.let { store[it] = item } ?: RuntimeException("Item must have id")
+        store.add(item)
         return item
     }
 }
