@@ -1,6 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 val springCloudVersion: String by project
+val junitVersion: String by project
 
 buildscript {
     repositories {
@@ -27,8 +28,7 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(module = "junit")
     }
-    testImplementation("org.junit.jupiter:junit-jupiter-api")
-    testRuntime("org.junit.jupiter:junit-jupiter-engine")
+    testImplementation("org.junit.jupiter:junit-jupiter:$junitVersion")
 }
 
 dependencyManagement {

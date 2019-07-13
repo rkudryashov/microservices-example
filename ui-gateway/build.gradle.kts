@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 val springCloudVersion: String by project
 val webjarsBootstrapVersion: String by project
 val webjarsLocatorVersion: String by project
+val junitVersion: String by project
 
 buildscript {
     repositories {
@@ -40,8 +41,7 @@ dependencies {
         exclude(module = "junit")
     }
     testImplementation("org.springframework.security:spring-security-test")
-    testImplementation("org.junit.jupiter:junit-jupiter-api")
-    testRuntime("org.junit.jupiter:junit-jupiter-engine")
+    testImplementation("org.junit.jupiter:junit-jupiter:$junitVersion")
 }
 
 dependencyManagement {
