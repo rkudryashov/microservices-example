@@ -4,6 +4,7 @@ import io.microservicesexample.itemsservice.model.Item
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.containsInAnyOrder
 import org.hamcrest.Matchers.equalTo
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -45,6 +46,7 @@ class RestApiTest {
             }
     }
 
+    @Disabled
     @Test
     fun testCreateItem() {
         webTestClient
