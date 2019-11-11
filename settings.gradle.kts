@@ -1,12 +1,18 @@
 rootProject.name = "microservices-example"
 
-include("ui-gateway", "eureka-server", "config-server", "items-ui", "items-service")
-
-val kotlinVersion: String by settings
-val springBootPluginVersion: String by settings
-val springDependencyManagementPluginVersion: String by settings
+include(
+    "ui-gateway",
+    "eureka-server",
+    "config-server",
+    "items-ui",
+    "items-service"
+)
 
 pluginManagement {
+    val kotlinVersion: String by settings
+    val springBootPluginVersion: String by settings
+    val springDependencyManagementPluginVersion: String by settings
+
     resolutionStrategy {
         eachPlugin {
             when (requested.id.id) {
