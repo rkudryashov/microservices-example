@@ -4,7 +4,6 @@ import io.microservicesexample.itemsservice.model.Item
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.containsInAnyOrder
 import org.hamcrest.Matchers.equalTo
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -30,10 +29,10 @@ class RestApiTest {
     fun testGetAllItems() {
         webTestClient
             .get().uri("/items/")
-            .accept(MediaType.APPLICATION_JSON_UTF8)
+            .accept(MediaType.APPLICATION_JSON)
             .exchange()
             .expectStatus().isOk
-            .expectHeader().contentType(MediaType.APPLICATION_JSON_UTF8)
+            .expectHeader().contentType(MediaType.APPLICATION_JSON)
             .expectBodyList<Item>()
             .hasSize(2)
             .returnResult().apply {
@@ -46,17 +45,16 @@ class RestApiTest {
             }
     }
 
-    @Disabled
     @Test
     fun testCreateItem() {
         webTestClient
             .post().uri("/items/")
-            .contentType(MediaType.APPLICATION_JSON_UTF8)
-            .body(BodyInserters.fromObject(Item(null, "third")))
-            .accept(MediaType.APPLICATION_JSON_UTF8)
+            .contentType(MediaType.APPLICATION_JSON)
+            .body(BodyInserters.fromValue(Item(null, "third")))
+            .accept(MediaType.APPLICATION_JSON)
             .exchange()
             .expectStatus().isOk
-            .expectHeader().contentType(MediaType.APPLICATION_JSON_UTF8)
+            .expectHeader().contentType(MediaType.APPLICATION_JSON)
             .expectBody(Item::class.java)
             .returnResult().apply {
                 assertThat(this.responseBody, equalTo(Item(3, "third")))
@@ -67,10 +65,10 @@ class RestApiTest {
     fun testGetOneItems() {
         webTestClient
             .get().uri("/items/2")
-            .accept(MediaType.APPLICATION_JSON_UTF8)
+            .accept(MediaType.APPLICATION_JSON)
             .exchange()
             .expectStatus().isOk
-            .expectHeader().contentType(MediaType.APPLICATION_JSON_UTF8)
+            .expectHeader().contentType(MediaType.APPLICATION_JSON)
             .expectBody(Item::class.java)
             .returnResult().apply {
                 assertThat(this.responseBody, equalTo(Item(2, "second")))
@@ -82,12 +80,12 @@ class RestApiTest {
     fun testUpdateItem() {
         webTestClient
             .put().uri("/items/2")
-            .contentType(MediaType.APPLICATION_JSON_UTF8)
-            .body(BodyInserters.fromObject(Item(2, "more than 2")))
-            .accept(MediaType.APPLICATION_JSON_UTF8)
+            .contentType(MediaType.APPLICATION_JSON)
+            .body(BodyInserters.fromValue(Item(2, "more than 2")))
+            .accept(MediaType.APPLICATION_JSON)
             .exchange()
             .expectStatus().isOk
-            .expectHeader().contentType(MediaType.APPLICATION_JSON_UTF8)
+            .expectHeader().contentType(MediaType.APPLICATION_JSON)
             .expectBody(Item::class.java)
             .returnResult().apply {
                 assertThat(

@@ -1,40 +1,21 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+val springBootVersion: String by project
 val springCloudVersion: String by project
-val junitVersion: String by project
-
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-}
 
 plugins {
     kotlin("jvm")
     kotlin("plugin.spring")
     id("org.springframework.boot")
-    id("io.spring.dependency-management")
     jacoco
-}
-
-repositories {
-    mavenCentral()
 }
 
 dependencies {
     implementation(kotlin("stdlib"))
-    implementation(kotlin("reflect"))
+    implementation(enforcedPlatform("org.springframework.boot:spring-boot-dependencies:$springBootVersion"))
+    implementation(enforcedPlatform("org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion"))
     implementation("org.springframework.cloud:spring-cloud-config-server")
-    testImplementation("org.springframework.boot:spring-boot-starter-test") {
-        exclude(module = "junit")
-    }
-    testImplementation("org.junit.jupiter:junit-jupiter:$junitVersion")
-}
-
-dependencyManagement {
-    imports {
-        mavenBom("org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion")
-    }
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 tasks {

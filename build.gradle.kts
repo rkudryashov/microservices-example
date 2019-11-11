@@ -1,9 +1,15 @@
-allprojects {
-    group = "io.microservicesexample"
-}
-
 repositories {
     mavenCentral()
+}
+
+subprojects {
+    group = "io.microservicesexample"
+    repositories {
+        mavenCentral()
+        jcenter()
+        // todo remove after release
+        maven("https://repository.jboss.org/nexus/content/repositories/public/")
+    }
 }
 
 plugins {

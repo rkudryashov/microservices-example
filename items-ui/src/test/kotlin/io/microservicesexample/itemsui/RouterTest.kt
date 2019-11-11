@@ -38,7 +38,7 @@ class RouterTest {
             .get().uri("/hystrix-fallback")
             .exchange()
             .expectStatus().isOk
-            .expectHeader().contentType(MediaType.APPLICATION_JSON_UTF8)
+            .expectHeader().contentType(MediaType.APPLICATION_JSON)
             .expectBody(String::class.java)
             .returnResult().apply {
                 MatcherAssert.assertThat(this.responseBody, Matchers.equalTo("{\"error\" : \"Some error\"}"))

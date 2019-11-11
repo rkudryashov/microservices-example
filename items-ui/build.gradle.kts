@@ -1,31 +1,21 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+val springBootVersion: String by project
 val springCloudVersion: String by project
 val webjarsBootstrapVersion: String by project
 val webjarsLocatorVersion: String by project
-val junitVersion: String by project
-
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-}
 
 plugins {
     kotlin("jvm")
     kotlin("plugin.spring")
     id("org.springframework.boot")
-    id("io.spring.dependency-management")
     jacoco
-}
-
-repositories {
-    mavenCentral()
 }
 
 dependencies {
     implementation(kotlin("stdlib"))
-    implementation(kotlin("reflect"))
+    implementation(enforcedPlatform("org.springframework.boot:spring-boot-dependencies:$springBootVersion"))
+    implementation(enforcedPlatform("org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion"))
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
     implementation("org.springframework.cloud:spring-cloud-config-client")
@@ -34,17 +24,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     implementation("org.webjars:bootstrap:$webjarsBootstrapVersion")
     implementation("org.webjars:webjars-locator:$webjarsLocatorVersion")
-
-    testImplementation("org.springframework.boot:spring-boot-starter-test") {
-        exclude(module = "junit")
-    }
-    testImplementation("org.junit.jupiter:junit-jupiter:$junitVersion")
-}
-
-dependencyManagement {
-    imports {
-        mavenBom("org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion")
-    }
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 tasks {
