@@ -17,8 +17,9 @@ class RoutesConfig {
         GET("/example") {
             val model = mapOf(
                 "requestWithRestTemplate" to itemsServiceClient.requestWithRestTemplate(1),
-                "requestWithWebClient" to itemsServiceClient.requestWithWebClient(1),
-                "requestWithFeignClient" to itemsServiceFeignClient.getItem(1)
+                "requestWithWebClient" to itemsServiceClient.requestWithWebClient(1)
+                // todo do we really need Feign with WebFlux?
+//                "requestWithFeignClient" to itemsServiceFeignClient.getItem(1)
             )
             ServerResponse.ok().contentType(MediaType.TEXT_HTML).render("example", model)
         }
